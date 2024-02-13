@@ -8,11 +8,17 @@ from rclpy.node import Node
 from std_msgs.msg import Int64
 from stretch_sensor_msgs.msg import Coords # Custom message
 
+# Other imports
+import numpy as np
+
 
 class MinimalPublisher(Node):
     def __init__(self) -> None:
         node_name = "minimal_publisher"
         super().__init__(node_name)
+        
+        # Create publisher
+        self.publisher = self.create_publisher(Coords, 'taurus_coords', 10)
         
         # Timer stuff
         timer_frequency = 10 # publish frequency
@@ -23,6 +29,18 @@ class MinimalPublisher(Node):
     def timer_callback(self):
         msg = Coords()
         
+        (x,y,z) = self.wavy_taurus()
+        Coords.x = x
+        Coords.y = y
+        Coords.z = z
+        
+        self.publ
+    
+    @staticmethod
     def wavy_taurus():
         t = rclpy.time.Time()
+        x = np.cos(t)
+        y = np.sin(t)
+        z = y
+        return (x, y, z)
         
