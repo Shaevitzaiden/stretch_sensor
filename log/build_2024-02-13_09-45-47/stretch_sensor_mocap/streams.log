@@ -1,0 +1,34 @@
+[0.711s] Invoking command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_mocap': PYTHONPATH=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/prefix_override:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/stretch_sensor_mocap build --build-base /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/build install --record /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/install.log --single-version-externally-managed
+[0.931s] running egg_info
+[0.932s] creating ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info
+[0.932s] writing ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/PKG-INFO
+[0.933s] writing dependency_links to ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/dependency_links.txt
+[0.933s] writing entry points to ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/entry_points.txt
+[0.933s] writing requirements to ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/requires.txt
+[0.933s] writing top-level names to ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/top_level.txt
+[0.933s] writing manifest file '../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/SOURCES.txt'
+[0.935s] reading manifest file '../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/SOURCES.txt'
+[0.935s] adding license file 'LICENSE'
+[0.936s] writing manifest file '../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/SOURCES.txt'
+[0.936s] running build
+[0.936s] running build_py
+[0.936s] creating /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/build
+[0.936s] creating /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/build/lib
+[0.936s] creating /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/build/lib/stretch_sensor_mocap
+[0.936s] copying stretch_sensor_mocap/__init__.py -> /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/build/lib/stretch_sensor_mocap
+[0.936s] running install
+[0.937s] running install_lib
+[0.937s] creating /home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages/stretch_sensor_mocap
+[0.937s] copying /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/build/lib/stretch_sensor_mocap/__init__.py -> /home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages/stretch_sensor_mocap
+[0.938s] byte-compiling /home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages/stretch_sensor_mocap/__init__.py to __init__.cpython-310.pyc
+[0.938s] running install_data
+[0.939s] creating /home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/ament_index
+[0.939s] creating /home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/ament_index/resource_index
+[0.939s] creating /home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/ament_index/resource_index/packages
+[0.939s] copying resource/stretch_sensor_mocap -> /home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/ament_index/resource_index/packages
+[0.939s] copying package.xml -> /home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap
+[0.939s] running install_egg_info
+[0.941s] Copying ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info to /home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages/stretch_sensor_mocap-0.0.0-py3.10.egg-info
+[0.941s] running install_scripts
+[0.958s] writing list of installed files to '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/install.log'
+[0.975s] Invoked command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_mocap' returned '0': PYTHONPATH=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/prefix_override:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/stretch_sensor_mocap build --build-base /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/build install --record /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/install.log --single-version-externally-managed

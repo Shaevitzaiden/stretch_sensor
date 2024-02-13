@@ -1,0 +1,20 @@
+[0.709s] Invoking command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_mocap': PYTHONPATH=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/prefix_override:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/stretch_sensor_mocap build --build-base /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/build install --record /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/install.log --single-version-externally-managed
+[0.930s] running egg_info
+[0.931s] writing ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/PKG-INFO
+[0.931s] writing dependency_links to ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/dependency_links.txt
+[0.931s] writing entry points to ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/entry_points.txt
+[0.931s] writing requirements to ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/requires.txt
+[0.931s] writing top-level names to ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/top_level.txt
+[0.932s] reading manifest file '../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/SOURCES.txt'
+[0.933s] adding license file 'LICENSE'
+[0.933s] writing manifest file '../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/SOURCES.txt'
+[0.933s] running build
+[0.934s] running build_py
+[0.934s] running install
+[0.934s] running install_lib
+[0.935s] running install_data
+[0.935s] running install_egg_info
+[0.937s] removing '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages/stretch_sensor_mocap-0.0.0-py3.10.egg-info' (and everything under it)
+[0.937s] Copying ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info to /home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages/stretch_sensor_mocap-0.0.0-py3.10.egg-info
+[0.938s] running install_scripts
+[0.954s] writing list of installed files to '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/install.log'

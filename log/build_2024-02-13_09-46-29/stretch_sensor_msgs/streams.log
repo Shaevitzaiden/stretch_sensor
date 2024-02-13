@@ -1,0 +1,20 @@
+[0.339s] Invoking command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretchable_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/stretch_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/rob599_basic:/opt/ros/humble /usr/bin/cmake /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs -DCMAKE_INSTALL_PREFIX=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs
+[0.349s] -- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.475s] -- Found geometry_msgs: 4.2.3 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.497s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.499s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.505s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.515s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.529s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.636s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.643s] [31mCMake Error at /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:93 (message):
+[0.643s]   rosidl_generate_interfaces() the passed file 'msg/Coords.msg' doesn't exist
+[0.643s]   relative to the CMAKE_CURRENT_SOURCE_DIR
+[0.643s]   '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs'
+[0.643s] Call Stack (most recent call first):
+[0.643s]   CMakeLists.txt:16 (rosidl_generate_interfaces)
+[0.643s] 
+[0.643s] [0m
+[0.643s] -- Configuring incomplete, errors occurred!
+[0.643s] See also "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs/CMakeFiles/CMakeOutput.log".
+[0.646s] Invoked command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretchable_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/stretch_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/rob599_basic:/opt/ros/humble /usr/bin/cmake /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs -DCMAKE_INSTALL_PREFIX=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs

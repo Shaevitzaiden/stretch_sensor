@@ -1,0 +1,222 @@
+[0.062s] Invoking command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretchable_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/stretch_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/rob599_basic:/opt/ros/humble /usr/bin/cmake /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs -DCMAKE_INSTALL_PREFIX=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs
+[0.072s] -- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.197s] -- Found geometry_msgs: 4.2.3 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.219s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.221s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.226s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.236s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.249s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.352s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.596s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.955s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.098s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.118s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[1.119s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.142s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[1.142s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.142s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.142s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.161s] -- Found PythonExtra: .so  
+[1.213s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.238s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.239s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs/rosidl_generator_c>;$<BUILD_INTERFACE:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs/rosidl_typesupport_fastrtps_c>;$<BUILD_INTERFACE:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs/rosidl_generator_cpp>;$<BUILD_INTERFACE:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs/rosidl_typesupport_fastrtps_cpp>;$<BUILD_INTERFACE:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs/rosidl_typesupport_introspection_c>;$<BUILD_INTERFACE:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs/rosidl_typesupport_introspection_cpp>;/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs/rosidl_generator_c;/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs/rosidl_generator_py
+[1.239s] -- Configured cppcheck exclude dirs and/or files: 
+[1.240s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.243s] -- Added test 'lint_cmake' to check CMake code style
+[1.244s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.253s] -- Added test 'uncrustify' to check C / C++ code style
+[1.253s] -- Configured uncrustify additional arguments: 
+[1.254s] -- Added test 'xmllint' to check XML markup files
+[1.257s] -- Configuring done
+[1.287s] -- Generating done
+[1.289s] -- Build files have been written to: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs
+[1.296s] Invoked command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretchable_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/stretch_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/rob599_basic:/opt/ros/humble /usr/bin/cmake /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs -DCMAKE_INSTALL_PREFIX=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs
+[1.297s] Invoking command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretchable_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/stretch_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/rob599_basic:/opt/ros/humble /usr/bin/cmake --build /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs -- -j12 -l12
+[1.329s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.338s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.345s] [  6%] Built target ament_cmake_python_copy_stretch_sensor_msgs
+[1.543s] [  6%] Built target stretch_sensor_msgs__cpp
+[1.545s] [  9%] [32mBuilding C object CMakeFiles/stretch_sensor_msgs__rosidl_generator_c.dir/rosidl_generator_c/stretch_sensor_msgs/msg/detail/coords__functions.c.o[0m
+[1.552s] [ 16%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[1.553s] [ 16%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[1.553s] [ 19%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[1.582s] running egg_info
+[1.582s] creating stretch_sensor_msgs.egg-info
+[1.583s] writing stretch_sensor_msgs.egg-info/PKG-INFO
+[1.583s] writing dependency_links to stretch_sensor_msgs.egg-info/dependency_links.txt
+[1.583s] writing top-level names to stretch_sensor_msgs.egg-info/top_level.txt
+[1.583s] writing manifest file 'stretch_sensor_msgs.egg-info/SOURCES.txt'
+[1.585s] reading manifest file 'stretch_sensor_msgs.egg-info/SOURCES.txt'
+[1.585s] writing manifest file 'stretch_sensor_msgs.egg-info/SOURCES.txt'
+[1.591s] [ 22%] [32m[1mLinking C shared library libstretch_sensor_msgs__rosidl_generator_c.so[0m
+[1.609s] [ 22%] Built target ament_cmake_python_build_stretch_sensor_msgs_egg
+[1.626s] [ 22%] Built target stretch_sensor_msgs__rosidl_generator_c
+[1.635s] [ 32%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[1.635s] [ 32%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[1.635s] [ 32%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[1.745s] [ 35%] [32mBuilding CXX object CMakeFiles/stretch_sensor_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/stretch_sensor_msgs/msg/coords__type_support.cpp.o[0m
+[1.764s] [ 38%] [32mBuilding CXX object CMakeFiles/stretch_sensor_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/stretch_sensor_msgs/msg/detail/coords__type_support.cpp.o[0m
+[1.768s] [ 41%] [32mBuilding CXX object CMakeFiles/stretch_sensor_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/stretch_sensor_msgs/msg/detail/dds_fastrtps/coords__type_support.cpp.o[0m
+[1.827s] [ 45%] [32mBuilding CXX object CMakeFiles/stretch_sensor_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/stretch_sensor_msgs/msg/coords__type_support.cpp.o[0m
+[1.849s] [ 48%] [32mBuilding CXX object CMakeFiles/stretch_sensor_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/stretch_sensor_msgs/msg/detail/coords__type_support_c.cpp.o[0m
+[1.850s] [ 51%] [32mBuilding C object CMakeFiles/stretch_sensor_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/stretch_sensor_msgs/msg/detail/coords__type_support.c.o[0m
+[1.855s] [ 54%] [32m[1mLinking CXX shared library libstretch_sensor_msgs__rosidl_typesupport_c.so[0m
+[1.883s] [ 58%] [32m[1mLinking C shared library libstretch_sensor_msgs__rosidl_typesupport_introspection_c.so[0m
+[1.894s] [ 58%] Built target stretch_sensor_msgs__rosidl_typesupport_c
+[1.913s] [ 58%] Built target stretch_sensor_msgs__rosidl_typesupport_introspection_c
+[1.989s] [ 61%] [32m[1mLinking CXX shared library libstretch_sensor_msgs__rosidl_typesupport_cpp.so[0m
+[2.026s] [ 61%] Built target stretch_sensor_msgs__rosidl_typesupport_cpp
+[2.093s] [ 64%] [32m[1mLinking CXX shared library libstretch_sensor_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[2.108s] [ 67%] [32m[1mLinking CXX shared library libstretch_sensor_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[2.137s] [ 70%] [32m[1mLinking CXX shared library libstretch_sensor_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[2.150s] [ 70%] Built target stretch_sensor_msgs__rosidl_typesupport_introspection_cpp
+[2.177s] [ 70%] Built target stretch_sensor_msgs__rosidl_typesupport_fastrtps_cpp
+[2.202s] [ 70%] Built target stretch_sensor_msgs__rosidl_typesupport_fastrtps_c
+[2.219s] [ 70%] Built target stretch_sensor_msgs
+[2.236s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[2.471s] [ 74%] Built target stretch_sensor_msgs__py
+[2.487s] [ 77%] [32mBuilding C object CMakeFiles/stretch_sensor_msgs__rosidl_generator_py.dir/rosidl_generator_py/stretch_sensor_msgs/msg/_coords_s.c.o[0m
+[2.573s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/stretch_sensor_msgs/libstretch_sensor_msgs__rosidl_generator_py.so[0m
+[2.608s] [ 80%] Built target stretch_sensor_msgs__rosidl_generator_py
+[2.626s] [ 90%] [32mBuilding C object CMakeFiles/stretch_sensor_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/stretch_sensor_msgs/_stretch_sensor_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[2.626s] [ 90%] [32mBuilding C object CMakeFiles/stretch_sensor_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/stretch_sensor_msgs/_stretch_sensor_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[2.626s] [ 90%] [32mBuilding C object CMakeFiles/stretch_sensor_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/stretch_sensor_msgs/_stretch_sensor_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[2.716s] [100%] [32m[1mLinking C shared library rosidl_generator_py/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.716s] [100%] [32m[1mLinking C shared library rosidl_generator_py/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.716s] [100%] [32m[1mLinking C shared library rosidl_generator_py/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.753s] [100%] Built target stretch_sensor_msgs__rosidl_typesupport_fastrtps_c__pyext
+[2.753s] [100%] Built target stretch_sensor_msgs__rosidl_typesupport_introspection_c__pyext
+[2.753s] [100%] Built target stretch_sensor_msgs__rosidl_typesupport_c__pyext
+[2.763s] Invoked command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretchable_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/stretch_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/rob599_basic:/opt/ros/humble /usr/bin/cmake --build /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs -- -j12 -l12
+[2.824s] Invoking command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretchable_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/stretch_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/rob599_basic:/opt/ros/humble /usr/bin/cmake --install /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs
+[2.830s] -- Install configuration: ""
+[2.831s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/ament_index/resource_index/rosidl_interfaces/stretch_sensor_msgs
+[2.831s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs
+[2.831s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg
+[2.831s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/rosidl_generator_c__visibility_control.h
+[2.831s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/coords.h
+[2.831s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail
+[2.831s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__struct.h
+[2.831s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__type_support.h
+[2.831s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__functions.c
+[2.831s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__functions.h
+[2.832s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/environment/library_path.sh
+[2.832s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/environment/library_path.dsv
+[2.832s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_generator_c.so
+[2.833s] -- Set runtime path of "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_generator_c.so" to ""
+[2.833s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs
+[2.833s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg
+[2.833s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[2.833s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail
+[2.833s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__rosidl_typesupport_fastrtps_c.h
+[2.833s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_fastrtps_c.so
+[2.833s] -- Set runtime path of "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[2.833s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs
+[2.833s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg
+[2.834s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/coords.hpp
+[2.834s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail
+[2.834s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__traits.hpp
+[2.834s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__builder.hpp
+[2.834s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__struct.hpp
+[2.834s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs
+[2.834s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg
+[2.834s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[2.834s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail
+[2.834s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/dds_fastrtps
+[2.834s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__rosidl_typesupport_fastrtps_cpp.hpp
+[2.834s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_fastrtps_cpp.so
+[2.835s] -- Set runtime path of "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[2.835s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs
+[2.835s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg
+[2.835s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[2.835s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail
+[2.835s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__type_support.c
+[2.835s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__rosidl_typesupport_introspection_c.h
+[2.835s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_introspection_c.so
+[2.835s] -- Set runtime path of "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_introspection_c.so" to ""
+[2.835s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_c.so
+[2.836s] -- Set runtime path of "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_c.so" to ""
+[2.836s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs
+[2.836s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg
+[2.836s] -- Up-to-date: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail
+[2.836s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__type_support.cpp
+[2.836s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/include/stretch_sensor_msgs/stretch_sensor_msgs/msg/detail/coords__rosidl_typesupport_introspection_cpp.hpp
+[2.836s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_introspection_cpp.so
+[2.837s] -- Set runtime path of "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[2.837s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_cpp.so
+[2.837s] -- Set runtime path of "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_typesupport_cpp.so" to ""
+[2.837s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/environment/pythonpath.sh
+[2.837s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/environment/pythonpath.dsv
+[2.837s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs-0.0.0-py3.10.egg-info
+[2.837s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs-0.0.0-py3.10.egg-info/top_level.txt
+[2.837s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+[2.837s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+[2.838s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+[2.838s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs
+[2.838s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/_stretch_sensor_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[2.838s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/_stretch_sensor_msgs_s.ep.rosidl_typesupport_c.c
+[2.838s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/msg
+[2.838s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/msg/_coords_s.c
+[2.838s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/msg/_coords.py
+[2.838s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/msg/__init__.py
+[2.838s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[2.839s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[2.839s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/__init__.py
+[2.839s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/libstretch_sensor_msgs__rosidl_generator_py.so
+[2.839s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/_stretch_sensor_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[2.839s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[2.870s] Listing '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs'...
+[2.870s] Compiling '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/__init__.py'...
+[2.870s] Listing '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/msg'...
+[2.870s] Compiling '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/msg/__init__.py'...
+[2.870s] Compiling '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/msg/_coords.py'...
+[2.873s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[2.874s] -- Set runtime path of "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[2.874s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[2.874s] -- Set runtime path of "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[2.875s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[2.875s] -- Set runtime path of "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages/stretch_sensor_msgs/stretch_sensor_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[2.875s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_generator_py.so
+[2.875s] -- Set runtime path of "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/lib/libstretch_sensor_msgs__rosidl_generator_py.so" to ""
+[2.875s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/msg/Coords.idl
+[2.875s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/msg/Coords.msg
+[2.876s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/ament_index/resource_index/package_run_dependencies/stretch_sensor_msgs
+[2.876s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/ament_index/resource_index/parent_prefix_path/stretch_sensor_msgs
+[2.876s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/environment/ament_prefix_path.sh
+[2.876s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/environment/ament_prefix_path.dsv
+[2.876s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/environment/path.sh
+[2.876s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/environment/path.dsv
+[2.876s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/local_setup.bash
+[2.876s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/local_setup.sh
+[2.877s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/local_setup.zsh
+[2.877s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/local_setup.dsv
+[2.877s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.dsv
+[2.877s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/ament_index/resource_index/packages/stretch_sensor_msgs
+[2.877s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/export_stretch_sensor_msgs__rosidl_generator_cExport.cmake
+[2.877s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/export_stretch_sensor_msgs__rosidl_generator_cExport-noconfig.cmake
+[2.877s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/export_stretch_sensor_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[2.878s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/export_stretch_sensor_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[2.878s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/export_stretch_sensor_msgs__rosidl_generator_cppExport.cmake
+[2.878s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/export_stretch_sensor_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[2.878s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/export_stretch_sensor_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[2.878s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/stretch_sensor_msgs__rosidl_typesupport_introspection_cExport.cmake
+[2.878s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/stretch_sensor_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[2.878s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/stretch_sensor_msgs__rosidl_typesupport_cExport.cmake
+[2.878s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/stretch_sensor_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[2.879s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/stretch_sensor_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[2.879s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/stretch_sensor_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[2.879s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/stretch_sensor_msgs__rosidl_typesupport_cppExport.cmake
+[2.879s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/stretch_sensor_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[2.879s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/export_stretch_sensor_msgs__rosidl_generator_pyExport.cmake
+[2.879s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/export_stretch_sensor_msgs__rosidl_generator_pyExport-noconfig.cmake
+[2.879s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/rosidl_cmake-extras.cmake
+[2.880s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.880s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[2.880s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[2.880s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[2.880s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[2.880s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[2.880s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/stretch_sensor_msgsConfig.cmake
+[2.880s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/cmake/stretch_sensor_msgsConfig-version.cmake
+[2.881s] -- Installing: /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.xml
+[2.883s] Invoked command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretchable_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/stretch_mocap_sensor:/home/aidenshaevitz/ros2_ws/install/rob599_basic:/opt/ros/humble /usr/bin/cmake --install /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs/build/stretch_sensor_msgs
