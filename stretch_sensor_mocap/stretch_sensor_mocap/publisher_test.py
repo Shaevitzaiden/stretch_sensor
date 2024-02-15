@@ -44,3 +44,21 @@ class MinimalPublisher(Node):
         z = y
         return (x, y, z)
         
+        
+def main(args=None):
+    # Init rclpy, always do this
+    rclpy.init(args=args)
+    
+    # Instantiate node class
+    minimal_publisher = MinimalPublisher
+    
+    # Spin up ROS2
+    rclpy.spin(minimal_publisher)
+    
+    # Clean shutdown 
+    rclpy.shutdown()
+    
+
+if __name__ == "__main__":
+    # Run main function
+    main()
