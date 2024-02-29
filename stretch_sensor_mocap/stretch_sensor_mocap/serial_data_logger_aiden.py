@@ -6,7 +6,7 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 def read3BytesArray(serObj,arrayLen=25):
-    numBytes = 3
+    numBytes = 2
     data = []
     for i in range(arrayLen):
         msg = serObj.read(numBytes)
@@ -21,7 +21,7 @@ def read3BytesArray(serObj,arrayLen=25):
 if __name__ == "__main__":
     time_to_log = input("Time to log: ")
     file_name = input("File name: ")
-    port = input("Serial Port (ie COM1): ")
+    port = "/dev/ttyACM0"
     # time_to_log = 60
     file_name = file_name + str(time_to_log) + "_" + str(int(time.time())) + ".csv"
     print(file_name)
@@ -41,7 +41,7 @@ if __name__ == "__main__":
                 if (time.time() > time_end):
                     print('time is up, terminating')
                     break
-                dataArray = read3BytesArray(ser, arrayLen=25)
+                dataArray = read3BytesArray(ser, arrayLen=29)
                 dataStr = ', '.join(map(str, dataArray))
                 print(dataStr)
                 f.write(''.join([dataStr,'\n']))

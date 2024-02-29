@@ -36,7 +36,7 @@ if __name__ == "__main__":
     # Get user inputs for log time, file name, and port
     time_to_log = input("Time to log: ")
     file_name = input("File name: ")
-    port = input("Serial Port (ie COM3): ")
+    port = "/dev/ttyACM0"
 
     # Build file name and print
     file_name = file_name + str(time_to_log) + "_" + str(int(time.time())) + ".csv"
