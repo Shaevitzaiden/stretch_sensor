@@ -14,7 +14,7 @@ const bool measure_adc1 = true; //set to true if you'd like to measure adc1 (PIN
 const bool measure_adc2 = true; //set to true if you'd like to measure adc2 (PIN_PA5)
 int nodes[] = {10, 11}; //array of addresses of each node in system
 const int num_parameters = 14; //number of data points each node will send back to controller
-const bool serial_print = true; //set to true if you'd like to print to the serial monitor and false if you'd like to use Serial.write() and a Python script for data collection
+const bool serial_print = false; //set to true if you'd like to print to the serial monitor and false if you'd like to use Serial.write() and a Python script for data collection
 const bool ms_timer = false; //set to true if you'd like to use the ms timer (<= 100 Hz) and false if you'd like to use the us timer (> 100 Hz)
 
 //other variables

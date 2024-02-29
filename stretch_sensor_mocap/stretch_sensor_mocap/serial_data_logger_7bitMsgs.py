@@ -60,7 +60,7 @@ if __name__ == "__main__":
                         break
                     
                     # Read messages and write them to a csv
-                    dataArray = readBytesArray(ser, arrayLen=43)
+                    dataArray = readBytesArray(ser, arrayLen=29)
                     dataStr = ', '.join(map(str, dataArray))
                     f.write(''.join([dataStr,'\n']))
 
