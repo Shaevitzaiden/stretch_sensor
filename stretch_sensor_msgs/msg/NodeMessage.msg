@@ -17,6 +17,7 @@ int64[] strain_adc
 float64[] base_resistance
 float64[] resistance
 float64[] strain
+float64[] base_length
 float64[] length
 
 # Gain

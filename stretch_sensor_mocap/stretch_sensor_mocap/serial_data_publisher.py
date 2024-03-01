@@ -23,7 +23,7 @@ class SensorDataPublisher(Node):
         self.declare_parameters(
             namespace="",
             parameters=[
-                ('serial_port', "/dev/ttyACM1"),
+                ('serial_port', "/dev/ttyACM0"),
                 ('baudrate', 115200),
                 ('num_nodes', 2),
                 ('node_data_size', 14),
@@ -34,7 +34,7 @@ class SensorDataPublisher(Node):
         # Create serial port interface object
         port = self.get_parameter('serial_port').get_parameter_value().string_value
         baudrate = self.get_parameter('baudrate').get_parameter_value().integer_value
-        self.serObj = serial.Serial(port, 115200, timeout=1)
+        self.serObj = serial.Serial(port, baudrate, timeout=1)
         
         # Check if open
         if not self.serObj.is_open:
