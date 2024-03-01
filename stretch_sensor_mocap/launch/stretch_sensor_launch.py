@@ -20,4 +20,9 @@ def generate_launch_description():
             package='stretch_sensor_mocap',
             executable='sensor_processor',
             ),
+        
+        # launch_ros.actions.Node(
+        #     package='plotjuggler',
+        #     executable='plotjuggler',
+        #     ),
         ])
