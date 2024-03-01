@@ -13,7 +13,8 @@ from rclpy.node import Node
 
 # Import messages
 from stretch_sensor_msgs.msg import NodeMessage, NodeMessageArray
-from std_msgs.msg import Int64MultiArray
+from std_msgs.msg import Int64MultiArray, Int64, Int32, Header
+from geometry_msgs.msg import Quaternion, Vector3
 
 
 class SensorDataPublisher(Node):
@@ -70,10 +71,9 @@ class SensorDataPublisher(Node):
             self.get_logger().info("Failed to grab data")
                 
                     
-    def publish_data(self, data):
-        msg = Int64MultiArray()
-        msg.data = data
-        self.publish_data(msg)
+    def publish_data(self, data_to_pub):
+        msg = NodeMessage()
+        msg.
           
     def _readBytesArray(self, arrayLen=43):
         data = []
