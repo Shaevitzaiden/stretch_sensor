@@ -1,2 +1,2 @@
 # Just an array of node messages
-NodeMessage[] nodes
+NodeMessage[] node_data

@@ -13,8 +13,6 @@ from rclpy.node import Node
 
 # Import messages
 from stretch_sensor_msgs.msg import NodeMessage, NodeMessageArray
-from std_msgs.msg import Int64MultiArray, Int64, Int32, Header
-from geometry_msgs.msg import Quaternion, Vector3
 
 
 class SensorDataPublisher(Node):
@@ -52,7 +50,7 @@ class SensorDataPublisher(Node):
         self.get_logger().info("Serial port successfully opened")
                 
         # Create the publisher
-        self.publisher = self.create_publisher(NodeMessage, "sensor_data", 10)
+        self.publisher = self.create_publisher(NodeMessageArray, "sensor_data", 10)
         
         # Other stuff
         self.time_since_last_sensor_data = self.get_clock().now()
@@ -61,71 +59,73 @@ class SensorDataPublisher(Node):
         self.stream_data()
         
     def stream_data(self):
-        delay_amount = 1/(1.5*self.get_parameter('node_sample_freq').get_parameter_value().integer_value)
+        # Amount to delay between checking serial inbound buffer (reduce extraneous looping)
+        # delay_amount = 1/(1.5*self.get_parameter('node_sample_freq').get_parameter_value().integer_value)
         
         # Write a character to trigger data output from microcontroller
         self.serObj.write(b'a')
         
         # Stream data while ros2 still workin
         while rclpy.ok():
-            # If there is data in the serial buffer
+            # If there is data in the serial buffer read it
             if self.serObj.in_waiting > 0:
                 # Read message as array
                 dataArray = self._readBytesArray(arrayLen=29)
                 # period = self.get_clock().now() - self.time_since_last_sensor_data
-                print(dataArray)
-                # print(1/(period.nanoseconds/1e9))
+                # print(dataArray)
                 # self.time_since_last_sensor_data = self.get_clock().now()
                 
                 # Publish data
                 self.publish_data(dataArray)
                 
-                
                 # time.sleep(delay_amount)
-                # self.get_logger().info()
-                # print([dataArray[i].__class__ for i in range(len(dataArray))])
-            else:
-                self.get_logger().info("No data available")
+            # else:
+            #     self.get_logger().info("No data available")
                 
                 
             # self.get_logger().info("Failed to grab data")
                 
                     
     def publish_data(self, data_to_pub):
-        msg = NodeMessage()
+        array_msg = NodeMessageArray()
+        msgs = [NodeMessage() for n in range(self.get_parameter('num_nodes').get_parameter_value().integer_value)]
         
-        data = data_to_pub[0]
-        
-        # Header msg
-        msg.header.frame_id = "1"
-        # msg.header.stamp = self.get_clock().now()
-        
-        # Quaternion
-        msg.quaternion.x = float(data[9])
-        msg.quaternion.y = float(data[10])
-        msg.quaternion.z = float(data[11])
-        msg.quaternion.w = float(data[8])
-        
-        # Accelerometer
-        msg.acceleration.x = float(data[2])
-        msg.acceleration.y = float(data[3])
-        msg.acceleration.z = float(data[4])
-        
-        # Gyroscope
-        msg.gyroscope.x = float(data[5])
-        msg.gyroscope.y = float(data[6])
-        msg.gyroscope.z = float(data[7])
-        
-        # Strain sensors
-        msg.strain_adc = [int(data[0]), int(data[1])]
-        
-        # Gain
-        msg.gain = int(data[-1])
-        
-        # Node frame
-        msg.frame = data_to_pub[-1]
-        
-        self.publisher.publish(msg)
+        for i in range(len(data_to_pub)-1):
+            data = data_to_pub[i]
+            
+            # Header msg
+            msgs[i].header.frame_id = str(i)
+            # msg.header.stamp = self.get_clock().now()
+            
+            # Quaternion
+            msgs[i].quaternion.x = float(data[9])
+            msgs[i].quaternion.y = float(data[10])
+            msgs[i].quaternion.z = float(data[11])
+            msgs[i].quaternion.w = float(data[8])
+            
+            # Rotation quality estimate
+            msgs[i].rotation_quality = int(data[12])
+            
+            # Accelerometer
+            msgs[i].acceleration.x = float(data[2])
+            msgs[i].acceleration.y = float(data[3])
+            msgs[i].acceleration.z = float(data[4])
+            
+            # Gyroscope
+            msgs[i].gyroscope.x = float(data[5])
+            msgs[i].gyroscope.y = float(data[6])
+            msgs[i].gyroscope.z = float(data[7])
+            
+            # Strain sensors
+            msgs[i].strain_adc = [int(data[0]), int(data[1])]
+            
+            # Gain
+            msgs[i].gain = int(data[13])
+            
+            # Node frame
+            msgs[i].frame = data_to_pub[-1]
+        array_msg.node_data = msgs
+        self.publisher.publish(array_msg)
     
                 
     def _readBytesArray(self, arrayLen=14):
@@ -177,24 +177,3 @@ def main(args=None):
 
 if __name__ == "__main__":
     main()
-    # while True:
-    #         try:
-    #             if ser.in_waiting > 0:
-    #                 # Read messages and write them to a csv
-    #                 dataArray = readBytesArray(ser, arrayLen=29)
-    #                 # readBytesArray(ser)
-    #                 # dataStr = ', '.join(map(str, dataArray))
-    #                 print(dataArray)
-    #         except KeyboardInterrupt:
-    #             print('ok, ok, terminating now...')
-    #             break
-            
-    #         except IndexError:
-    #             print("Index Error")
-    #             continue
-            
-    # # Empty buffer and close serial port
-    # ser.reset_input_buffer()
-    # ser.close()
-    
-    # print("Done")

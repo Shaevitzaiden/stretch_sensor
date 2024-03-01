@@ -3,6 +3,7 @@ std_msgs/Header header
 
 # Orientation
 geometry_msgs/Quaternion quaternion
+int32 rotation_quality
 
 # Accelerometer
 geometry_msgs/Vector3 acceleration
