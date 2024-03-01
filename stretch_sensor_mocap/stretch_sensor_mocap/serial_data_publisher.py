@@ -25,9 +25,11 @@ class SensorDataPublisher(Node):
         self.declare_parameters(
             namespace="",
             parameters=[
-                ('serial_port', "/dev/ttyACM0"),
+                ('serial_port', "/dev/ttyACM1"),
                 ('baudrate', 115200),
-                ('sensor_array_size', 14)
+                ('num_nodes', 2),
+                ('node_data_size', 14),
+                ('node_sample_freq', 200)
             ]
         )  
         
@@ -50,12 +52,17 @@ class SensorDataPublisher(Node):
         self.get_logger().info("Serial port successfully opened")
                 
         # Create the publisher
-        self.publisher = self.create_publisher(NodeMessageArray, "sensor_data", 10)
+        self.publisher = self.create_publisher(NodeMessage, "sensor_data", 10)
+        
+        # Other stuff
+        self.time_since_last_sensor_data = self.get_clock().now()
         
         # Start data polling over serial and publishing as fast as possible
         self.stream_data()
         
     def stream_data(self):
+        delay_amount = 1/(1.5*self.get_parameter('node_sample_freq').get_parameter_value().integer_value)
+        
         # Write a character to trigger data output from microcontroller
         self.serObj.write(b'a')
         
@@ -65,51 +72,75 @@ class SensorDataPublisher(Node):
             if self.serObj.in_waiting > 0:
                 # Read message as array
                 dataArray = self._readBytesArray(arrayLen=29)
+                # period = self.get_clock().now() - self.time_since_last_sensor_data
+                print(dataArray)
+                # print(1/(period.nanoseconds/1e9))
+                # self.time_since_last_sensor_data = self.get_clock().now()
+                
+                # Publish data
+                self.publish_data(dataArray)
+                
+                
+                # time.sleep(delay_amount)
                 # self.get_logger().info()
                 # print([dataArray[i].__class__ for i in range(len(dataArray))])
-                self.publish_data(dataArray)
-            self.get_logger().info("Failed to grab data")
+            else:
+                self.get_logger().info("No data available")
+                
+                
+            # self.get_logger().info("Failed to grab data")
                 
                     
     def publish_data(self, data_to_pub):
         msg = NodeMessage()
         
+        data = data_to_pub[0]
+        
         # Header msg
-        msg.header.frame_id = 1
-        msg.header.stamp = self.get_clock.now()
+        msg.header.frame_id = "1"
+        # msg.header.stamp = self.get_clock().now()
         
         # Quaternion
-        msg.quaternion.x = 0
-        msg.quaternion.y = 0
-        msg.quaternion.z = 0
-        msg.quaternion.w = 0
+        msg.quaternion.x = float(data[9])
+        msg.quaternion.y = float(data[10])
+        msg.quaternion.z = float(data[11])
+        msg.quaternion.w = float(data[8])
         
         # Accelerometer
-        msg.acceleration.x = 0
-        msg.acceleration.y = 0
-        msg.acceleration.z = 0
+        msg.acceleration.x = float(data[2])
+        msg.acceleration.y = float(data[3])
+        msg.acceleration.z = float(data[4])
         
         # Gyroscope
-        msg.gyroscope.x = 0
-        msg.gyroscope.y = 0
-        msg.gyroscope.z = 0
+        msg.gyroscope.x = float(data[5])
+        msg.gyroscope.y = float(data[6])
+        msg.gyroscope.z = float(data[7])
         
         # Strain sensors
-        msg.strain_adc = [0, 0]
+        msg.strain_adc = [int(data[0]), int(data[1])]
         
         # Gain
-        msg.gain = 0
+        msg.gain = int(data[-1])
         
         # Node frame
         msg.frame = data_to_pub[-1]
         
-        
-          
-    def _readBytesArray(self, arrayLen=43):
+        self.publisher.publish(msg)
+    
+                
+    def _readBytesArray(self, arrayLen=14):
         data = []
-        for i in range(arrayLen):
-            msg = self._read14orMoreBitMsg()
-            data.append(int(msg))
+        # loop over each node
+        for n in range(self.get_parameter("num_nodes").get_parameter_value().integer_value):        
+            # Read and store data from each node in a separate list
+            node_data = []
+            for i in range(self.get_parameter("node_data_size").get_parameter_value().integer_value):
+                msg = self._read14orMoreBitMsg()
+                node_data.append(int(msg))
+            data.append(node_data)
+        
+        # Read frame counter from nodes
+        data.append(self._read14orMoreBitMsg())
         return data
 
     def _read14orMoreBitMsg(self):
