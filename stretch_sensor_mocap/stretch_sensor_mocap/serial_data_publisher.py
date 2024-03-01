@@ -73,7 +73,37 @@ class SensorDataPublisher(Node):
                     
     def publish_data(self, data_to_pub):
         msg = NodeMessage()
-        msg.
+        
+        # Header msg
+        msg.header.frame_id = 1
+        msg.header.stamp = self.get_clock.now()
+        
+        # Quaternion
+        msg.quaternion.x = 0
+        msg.quaternion.y = 0
+        msg.quaternion.z = 0
+        msg.quaternion.w = 0
+        
+        # Accelerometer
+        msg.acceleration.x = 0
+        msg.acceleration.y = 0
+        msg.acceleration.z = 0
+        
+        # Gyroscope
+        msg.gyroscope.x = 0
+        msg.gyroscope.y = 0
+        msg.gyroscope.z = 0
+        
+        # Strain sensors
+        msg.strain_adc = [0, 0]
+        
+        # Gain
+        msg.gain = 0
+        
+        # Node frame
+        msg.frame = data_to_pub[-1]
+        
+        
           
     def _readBytesArray(self, arrayLen=43):
         data = []
