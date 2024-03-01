@@ -71,19 +71,10 @@ class SensorDataPublisher(Node):
             if self.serObj.in_waiting > 0:
                 # Read message as array
                 dataArray = self._readBytesArray(arrayLen=29)
-                # period = self.get_clock().now() - self.time_since_last_sensor_data
-                # print(dataArray)
-                # self.time_since_last_sensor_data = self.get_clock().now()
-                
+
                 # Publish data
                 self.publish_data(dataArray)
-                
-                # time.sleep(delay_amount)
-            # else:
-            #     self.get_logger().info("No data available")
-                
-                
-            # self.get_logger().info("Failed to grab data")
+ 
                 
                     
     def publish_data(self, data_to_pub):
