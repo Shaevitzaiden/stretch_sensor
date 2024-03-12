@@ -71,7 +71,7 @@ class SensorDataPublisher(Node):
             if self.serObj.in_waiting > 0:
                 # Read message as array
                 dataArray = self._readBytesArray(arrayLen=29)
-
+                # print(dataArray)
                 # Publish data
                 self.publish_data(dataArray)
  
