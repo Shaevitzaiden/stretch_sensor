@@ -4,6 +4,10 @@
 import rclpy
 from rclpy.node import Node
 
+from visualization_msgs.msg import Marker, MarkerArray
+from geometry_msgs.msg import Pose
+
+
 # Import custon node sensor messages
 from stretch_sensor_msgs.msg import NodeMessage, NodeMessageArray
 
@@ -66,6 +70,9 @@ class PoseEstimator(Node):
             # Perform slerp, gets out [start, ...num_interp_quats-2..., End]
             quats = slerp_object(times)
 
+            # Plot test 
+            
+            
             # Rotate a bunch of vectors by quaternions of length decided by the strain sensor length divided by the number of segments
             # Add vectors to get next node location
             # ------- Make vectors ------
@@ -74,6 +81,45 @@ class PoseEstimator(Node):
 
             # Store the pose of node i+1 (i=0 assumed to be at origin)
         return msg
+
+    def create_arrow_marker_array(self, quats):
+        marker_array = MarkerArray()
+        marker_array_temp = []
+        for q in quats:
+            p = Pose()
+            p.orientation
+   
+            marker_array.append(self.create_marker_msg())
+        
+        return marker_array
+            
+      
+ 
+    def create_marker_msg(self, pose, marker_type=0, frame_id='/map', scale=[0.1,0.1,0.1], color=[1.0,0.0,0.0,1.0], text=None) -> Marker:
+        marker = Marker()
+
+        marker.type = marker_type
+            
+        marker.header.frame_id = frame_id
+        marker.header.stamp = self.get_clock().now().to_msg()
+        marker.id = self.marker_counter
+        self.marker_counter += 1
+        
+        # add the marker
+        marker.action = 0
+
+        marker.scale.x = scale[0]
+        marker.scale.y = scale[1]
+        marker.scale.z = scale[2]
+
+        marker.pose = pose
+
+        marker.color.r = color[0]
+        marker.color.g = color[1]
+        marker.color.b = color[2]
+        marker.color.a = color[3]
+
+        return marker
 
 
 def main(args=None):
