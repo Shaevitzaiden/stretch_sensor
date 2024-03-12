@@ -8,16 +8,17 @@ from scipy.spatial.transform import Slerp
 if __name__ == "__main__":
     # First run slerp to get array of quaternions
     
-    num_interp_quats = 10
+    num_interp_quats = 100
     times = np.linspace(0,1,num_interp_quats)
     unit_vectors = np.zeros([3, num_interp_quats])
     unit_vectors[0,:] = 1
     unit_vectors = np.transpose(unit_vectors)
     
     quat1 = [0, 0, 0.258819, 0.9659258]
-    quat2 = [0, 0, 0.3826834, 0.9238795]
+    # quat2 = [0, 0, 0, 1]
+    quat3 = [0, 0, -0.258819, 0.9659258]
     
-    node_quaternions = R.from_quat([quat1, quat2])
+    node_quaternions = R.from_quat([quat1, quat3])
     slerp_object = Slerp([0, 1], node_quaternions)
 
     # Perform slerp, gets out [start, ...num_interp_quats-2..., End]
@@ -30,3 +31,10 @@ if __name__ == "__main__":
     # Sequentially add vectors using cumulative sum
     summed_rotated_vectors = np.cumsum(rotated_vectors, axis=0)
     print(summed_rotated_vectors)
+    
+    for i in range(len(summed_rotated_vectors[:])-1):
+        (x0,y0,z0) = summed_rotated_vectors[i,:]
+        (x1,y1,z1) = summed_rotated_vectors[i+1,:]
+        plt.plot([x0, x1], [y0, y1])
+        
+    plt.show()
