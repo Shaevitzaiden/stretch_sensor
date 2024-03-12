@@ -39,6 +39,11 @@ class SensorDataSubscriber(Node):
         self.gyroscope_history = [deque([], maxlen=10) for x in range(self.get_parameter('num_nodes').get_parameter_value().integer_value)]
         self.rotation_history = [deque([], maxlen=10) for x in range(self.get_parameter('num_nodes').get_parameter_value().integer_value)]
         
+        # Lambda functions to reference when correcting roll axis for quadrants 1-4 
+        self.roll_funcs = [lambda x: x, lambda x: 180-x, lambda x: -180-x, lambda x: x]
+        self.current_roll_func = self.roll_funcs[0]
+        self.roll_func_thresh = 2
+        
     def callback(self, msg):
         # # store most recent message
         # self.most_recent_messages.appendleft(msg)
@@ -53,12 +58,18 @@ class SensorDataSubscriber(Node):
         self.sensor_publisher.publish(msg)    
     
     def _process_IMU_data(self, msg):
+        temp = msg.node_data[1].quaternion
+        temp.x = 0.1
+        temp.y = 0.12
+        temp.z = 0.3
+        temp.w = 1.0
+    
         for i, sensor_node in enumerate(msg.node_data):    
             # Store most recent gyroscope values for each node in a separate deque
             self.gyroscope_history[i].appendleft([sensor_node.gyroscope.x, sensor_node.gyroscope.y, sensor_node.gyroscope.z])
             # Average value in each column (x, y, z)
             avg_angular_velocities = np.mean(self.gyroscope_history[i], axis=0)
-
+        
             # Store rotation using quaternion and then convert to euler
             r_quat = R.from_quat([sensor_node.quaternion.x, sensor_node.quaternion.y, sensor_node.quaternion.z, sensor_node.quaternion.w])
             r_euler_intrinsic = r_quat.as_euler('XYZ', degrees=True) # 'xyz' for extrinsic, 'XYZ' for intrinsic rotations
@@ -66,16 +77,36 @@ class SensorDataSubscriber(Node):
 
             # Check rotation axis ??? against previous rotation angle and gyroscope to see if it shifted quadrants
             # Maybe instead check the gravity vector to set standard for what quadrant is what at startup? 
-            if len(self.rotation_history[i] == 0):
+            if len(self.rotation_history[i]) == 0:
                 self.rotation_history[i].appendleft(r_euler_intrinsic)
             else:
                 delta = (r_euler_intrinsic - self.rotation_history[i])
 
+            # Correct y-axis euler intrinsic rotation to full 180 degree rotation window
+            # if (np.abs(r_euler_intrinsic[1]) - 90) < self.roll_func_thresh:
+            #     s = np.sign(r_euler_intrinsic[1])
+            #     if avg_angular_velocities[1] > 0:
+            #         self.current_roll_func = self.roll_funcs[1] if (s > 0) else self.roll_funcs[3]
+            #     elif avg_angular_velocities[1] < 0:
+            #         self.current_roll_func = self.roll_funcs[0] if (s > 0) else self.roll_funcs[2]
+            # if np.abs(r_euler_intrinsic[1]) < self.roll_func_thresh:
+            #     s = np.sign(r_euler_intrinsic[1])
+            #     if avg_angular_velocities[1] > 0:
+            #         self.current_roll_func = self.roll_funcs[0] if (s > 0) else self.roll_funcs[2]
+            #     elif avg_angular_velocities[1] < 0:
+            #         self.current_roll_func = self.roll_funcs[1] if (s > 0) else self.roll_funcs[3]
+            
+            
             # Probably don't actually need to calculate these, but we are going to need to use the extrinsic rotations for the algorithm, whether in quaternion form or euler angle form
             # The intrinsic rotations are probably only going to be used for comparing against the gyroscope since that is attached the sensor's coordinate frame
+            # sensor_node.euler_angles.x = r_euler_intrinsic[0]
+            # sensor_node.euler_angles.y = self.current_roll_func(r_euler_intrinsic[1])
+            # sensor_node.euler_angles.z = r_euler_intrinsic[2]
+            
+            
             sensor_node.euler_angles.x = r_euler_extrinsic[0]
-            sensor_node.euler_angles.x = r_euler_extrinsic[0]
-            sensor_node.euler_angles.x = r_euler_extrinsic[0]
+            sensor_node.euler_angles.y = r_euler_extrinsic[1]
+            sensor_node.euler_angles.z = r_euler_extrinsic[2]
 
         return msg
                 
