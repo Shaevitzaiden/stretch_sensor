@@ -42,6 +42,7 @@ class PoseEstimator(Node):
 
         # Publisher for visualizing quaternion coordinate frames in rviz
         self.coordinate_marker_publisher = self.create_publisher(MarkerArray, "coordinates_frame_marksers", 10)
+        self.marker_counter = 0
         
         # Sensor message history for algorithm purposes
         self.pose_estimate_history = [deque([], maxlen=10) for x in range(self.get_parameter('num_nodes').get_parameter_value().integer_value)]
@@ -74,7 +75,9 @@ class PoseEstimator(Node):
             # Perform slerp, gets out [start, ...num_interp_quats-2..., End]
             quats = slerp_object(times)
 
-            # Plot test 
+            # Make arrow marker array and publish
+            self.clear_markers()
+            self.coordinate_marker_publisher.publish(self.create_marker_array(quats.as_quat()))
             
             
             # Rotate a bunch of vectors by quaternions of length decided by the strain sensor length divided by the number of segments
@@ -86,20 +89,24 @@ class PoseEstimator(Node):
             # Store the pose of node i+1 (i=0 assumed to be at origin)
         return msg
 
-    def create_arrow_marker_array(self, quats):
+    def create_marker_array(self, quats):
         marker_array = MarkerArray()
         marker_array_temp = []
-        for q in quats:
+        for i,q in enumerate(quats):
             p = Pose()
-            p.orientation
+            p.orientation.x = q[0]
+            p.orientation.y = q[1]
+            p.orientation.z = q[2]
+            p.orientation.w = q[3]
+            p.position.x = i*0.05
+            p.position.y = 0.0
+            p.position.z = 1.0
    
-            marker_array.append(self.create_marker_msg())
-        
+            marker_array_temp.append(self.create_marker_msg(p))
+        marker_array.markers = marker_array_temp
         return marker_array
             
-      
- 
-    def create_marker_msg(self, pose, marker_type=0, frame_id='/map', scale=[0.1,0.1,0.1], color=[1.0,0.0,0.0,1.0], text=None) -> Marker:
+    def create_marker_msg(self, pose, marker_type=0, frame_id='/map', scale=[0.04,0.005,0.005], color=[1.0,0.0,0.0,1.0], text=None) -> Marker:
         marker = Marker()
 
         marker.type = marker_type
@@ -124,6 +131,18 @@ class PoseEstimator(Node):
         marker.color.a = color[3]
 
         return marker
+
+    def clear_markers(self, frame="/map"):
+        marker_array = MarkerArray()
+        marker_array_temp = []
+        for i in range(self.marker_counter):
+            marker = Marker()
+            marker.id = i
+            marker.header.frame_id = frame
+            marker.action = Marker.DELETEALL
+            marker_array_temp.append(marker)
+        marker_array.markers = marker_array_temp
+        self.coordinate_marker_publisher.publish(marker_array)
 
 
 def main(args=None):

@@ -8,7 +8,7 @@ from scipy.spatial.transform import Slerp
 if __name__ == "__main__":
     # First run slerp to get array of quaternions
     sensor_length = 2*np.pi
-    num_interp_quats = 100
+    num_interp_quats = 10
     times = np.linspace(0,1,num_interp_quats)
     unit_vectors = np.zeros([3, num_interp_quats])
     unit_vectors[0,:] = 1*sensor_length/(num_interp_quats-1)
@@ -25,14 +25,14 @@ if __name__ == "__main__":
 
     # Perform slerp, gets out [start, ...num_interp_quats-2..., End]
     quats = slerp_object(times)
-    
+    print(quats.as_quat())
     # Apply rotations to unit vectors
     rotated_vectors = quats.apply(unit_vectors)
-    print(rotated_vectors)
+    # print(rotated_vectors)
     
     # Sequentially add vectors using cumulative sum
     summed_rotated_vectors = np.cumsum(rotated_vectors, axis=0)
-    print(summed_rotated_vectors)
+    # print(summed_rotated_vectors)
     
     num_vectors = len(summed_rotated_vectors[:])-1
     for i in range(num_vectors):
