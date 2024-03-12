@@ -7,16 +7,18 @@ from scipy.spatial.transform import Slerp
 
 if __name__ == "__main__":
     # First run slerp to get array of quaternions
-    
+    sensor_length = 2*np.pi
     num_interp_quats = 100
     times = np.linspace(0,1,num_interp_quats)
     unit_vectors = np.zeros([3, num_interp_quats])
-    unit_vectors[0,:] = 1
+    unit_vectors[0,:] = 1*sensor_length/(num_interp_quats-1)
     unit_vectors = np.transpose(unit_vectors)
     
-    quat1 = [0, 0, 0.258819, 0.9659258]
-    # quat2 = [0, 0, 0, 1]
-    quat3 = [0, 0, -0.258819, 0.9659258]
+    rot1 = R.from_euler('xyz',[0,0,30])
+    rot2 = R.from_euler('xyz',[0,0,-30])
+    
+    quat1 = rot1.as_quat()
+    quat3 = rot2.as_quat()
     
     node_quaternions = R.from_quat([quat1, quat3])
     slerp_object = Slerp([0, 1], node_quaternions)
@@ -32,9 +34,14 @@ if __name__ == "__main__":
     summed_rotated_vectors = np.cumsum(rotated_vectors, axis=0)
     print(summed_rotated_vectors)
     
-    for i in range(len(summed_rotated_vectors[:])-1):
+    num_vectors = len(summed_rotated_vectors[:])-1
+    for i in range(num_vectors):
         (x0,y0,z0) = summed_rotated_vectors[i,:]
         (x1,y1,z1) = summed_rotated_vectors[i+1,:]
         plt.plot([x0, x1], [y0, y1])
-        
+        if i == 0:
+            plt.plot(x0,y0,'*',markersize=10,color='green')
+        if i == (num_vectors-1):
+            plt.plot(x1,y1,'*',markersize=10,color='red')
+
     plt.show()

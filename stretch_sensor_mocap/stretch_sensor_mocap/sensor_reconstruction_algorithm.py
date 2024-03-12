@@ -40,6 +40,9 @@ class PoseEstimator(Node):
         # Create publisher to republish processed sensor data
         self.sensor_publisher = self.create_publisher(NodeMessageArray, "sensor_data_with_poses", 10)
 
+        # Publisher for visualizing quaternion coordinate frames in rviz
+        self.coordinate_marker_publisher = self.create_publisher(MarkerArray, "coordinates_frame_marksers", 10)
+        
         # Sensor message history for algorithm purposes
         self.pose_estimate_history = [deque([], maxlen=10) for x in range(self.get_parameter('num_nodes').get_parameter_value().integer_value)]
 
@@ -64,6 +67,7 @@ class PoseEstimator(Node):
             # First run slerp to get array of quaternions
             quat1 = [msg.node_data[i].quaternion.x, msg.node_data[i].quaternion.y, msg.node_data[i].quaternion.z, msg.node_data[i].quaternion.w]
             quat2 = [msg.node_data[i+1].quaternion.x, msg.node_data[i+1].quaternion.y, msg.node_data[i+1].quaternion.z, msg.node_data[i+1].quaternion.w]
+            
             node_quaternions = R.from_quat([quat1, quat2])
             slerp_object = Slerp([0, 1], node_quaternions)
 

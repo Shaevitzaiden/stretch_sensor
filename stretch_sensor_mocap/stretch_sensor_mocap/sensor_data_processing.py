@@ -59,9 +59,9 @@ class SensorDataSubscriber(Node):
     
     def _process_IMU_data(self, msg):
         temp = msg.node_data[1].quaternion
-        temp.x = 0.1
-        temp.y = 0.12
-        temp.z = 0.3
+        temp.x = 0.0
+        temp.y = 0.0
+        temp.z = 0.0
         temp.w = 1.0
     
         for i, sensor_node in enumerate(msg.node_data):    
