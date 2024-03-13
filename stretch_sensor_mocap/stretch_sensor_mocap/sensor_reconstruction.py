@@ -50,7 +50,7 @@ class PoseEstimator(Node):
 
         # Sensor message history for algorithm purposes
         self.pose_estimate_history = [deque([], maxlen=10) for x in range(self.get_parameter('num_nodes').get_parameter_value().integer_value)]
-        self.most_recent_slerp = None
+        self.most_recent_reconstruction = None
         
     
     def callback(self, msg):
@@ -80,7 +80,6 @@ class PoseEstimator(Node):
 
             # Perform slerp, gets out [start, ...num_interp_quats-2..., End]
             quats = slerp_object(times)
-            self.most_recent_slerp = quats
             
             # Rotate a bunch of vectors by quaternions of length decided by the strain sensor length divided by the number of segments
             # Add vectors to get next node location
@@ -89,14 +88,16 @@ class PoseEstimator(Node):
             x_vecs[:,0] = 1
             
             # ------- Rotate vectors ----
-            rotated_x_vectors = 
+            rotated_x_vectors = quats.apply(x_vecs)
+            
             # ------- Add vectors -------
-
+            summed_rotated_x_vectors = np.cumsum(rotated_x_vectors, axis=0)
+            self.most_recent_reconstruction = [summed_rotated_x_vectors, quats]
             # Store the pose of node i+1 (i=0 assumed to be at origin)
         return msg
 
     def marker_publish_callback(self):
-        if self.most_recent_slerp is not None:
+        if self.most_recent_reconstruction is not None:
             self.coordinate_marker_publisher.publish(self.create_coordinate_marker_array())
             
             # reset marker counter
@@ -104,7 +105,7 @@ class PoseEstimator(Node):
     
     def create_coordinate_marker_array(self):
         slerp_size = self.get_parameter('slerp_size').get_parameter_value().integer_value
-        current_slerp = self.most_recent_slerp
+        [current_points, current_slerp] = self.most_recent_reconstruction
         x = np.zeros([slerp_size, 3])
         x[:,0] = 1
         y = np.zeros([slerp_size, 3])
@@ -125,9 +126,10 @@ class PoseEstimator(Node):
         rotated_y_vec = current_slerp.apply(y)
         rotated_z_vec = current_slerp.apply(z)
         
-        # array of vector positions to place coordinate frames origins at
-        origins = np.zeros([slerp_size, 3])
-        origins[:,0] = np.arange(slerp_size)
+        # # array of vector positions to place coordinate frames origins at
+        # origins = np.zeros([slerp_size, 3])
+        # origins[:,0] = np.arange(slerp_size)
+        origins = np.vstack([np.array([0,0,0]), current_points])
         
         
         for i in range(len(rotated_x_vec[:,0])):
