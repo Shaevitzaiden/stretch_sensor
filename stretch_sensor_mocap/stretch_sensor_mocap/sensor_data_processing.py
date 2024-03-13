@@ -57,12 +57,6 @@ class SensorDataSubscriber(Node):
         self.sensor_publisher.publish(msg)    
     
     def _process_IMU_data(self, msg):
-        temp = msg.node_data[1].quaternion
-        temp.x = 0.0
-        temp.y = 0.0
-        temp.z = 0.0
-        temp.w = 1.0
-    
         for i, sensor_node in enumerate(msg.node_data):    
             # Store most recent gyroscope values for each node in a separate deque
             self.gyroscope_history[i].appendleft([sensor_node.gyroscope.x, sensor_node.gyroscope.y, sensor_node.gyroscope.z])
