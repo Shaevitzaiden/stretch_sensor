@@ -1,0 +1,187 @@
+[1.035s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[1.035s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7c83ecb84070>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7c83ecfe7820>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7c83ecfe7820>>)
+[1.087s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.088s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.088s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.088s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.088s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.088s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.088s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor'
+[1.088s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.088s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.088s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.088s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.088s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.088s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.088s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.088s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.088s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.098s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_mocap) by extensions ['ignore', 'ignore_ament_install']
+[1.099s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_mocap) by extension 'ignore'
+[1.099s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_mocap) by extension 'ignore_ament_install'
+[1.099s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_mocap) by extensions ['colcon_pkg']
+[1.099s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_mocap) by extension 'colcon_pkg'
+[1.099s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_mocap) by extensions ['colcon_meta']
+[1.099s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_mocap) by extension 'colcon_meta'
+[1.099s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_mocap) by extensions ['ros']
+[1.099s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_mocap) by extension 'ros'
+[1.101s] DEBUG:colcon.colcon_core.package_identification:Package 'stretch_sensor_mocap' with type 'ros.ament_python' and name 'stretch_sensor_mocap'
+[1.101s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_msgs) by extensions ['ignore', 'ignore_ament_install']
+[1.101s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_msgs) by extension 'ignore'
+[1.101s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_msgs) by extension 'ignore_ament_install'
+[1.101s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_msgs) by extensions ['colcon_pkg']
+[1.101s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_msgs) by extension 'colcon_pkg'
+[1.101s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_msgs) by extensions ['colcon_meta']
+[1.101s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_msgs) by extension 'colcon_meta'
+[1.101s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_msgs) by extensions ['ros']
+[1.101s] Level 1:colcon.colcon_core.package_identification:_identify(stretch_sensor_msgs) by extension 'ros'
+[1.102s] DEBUG:colcon.colcon_core.package_identification:Package 'stretch_sensor_msgs' with type 'ros.ament_cmake' and name 'stretch_sensor_msgs'
+[1.102s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.102s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.102s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.102s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.102s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.224s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 6 installed packages in /home/aidenshaevitz/ros2_ws/install
+[1.247s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 395 installed packages in /opt/ros/humble
+[1.249s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.348s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_msgs' build argument 'cmake_args' from command line to 'None'
+[1.348s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_msgs' build argument 'cmake_target' from command line to 'None'
+[1.348s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.348s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[1.348s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[1.349s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[1.349s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[1.349s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[1.349s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.349s] DEBUG:colcon.colcon_core.verb:Building package 'stretch_sensor_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs', 'merge_install': False, 'path': '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs', 'symlink_install': False, 'test_result_base': None}
+[1.363s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_mocap' build argument 'cmake_args' from command line to 'None'
+[1.364s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_mocap' build argument 'cmake_target' from command line to 'None'
+[1.364s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_mocap' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.364s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_mocap' build argument 'cmake_clean_cache' from command line to 'False'
+[1.364s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_mocap' build argument 'cmake_clean_first' from command line to 'False'
+[1.364s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_mocap' build argument 'cmake_force_configure' from command line to 'False'
+[1.364s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_mocap' build argument 'ament_cmake_args' from command line to 'None'
+[1.364s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_mocap' build argument 'catkin_cmake_args' from command line to 'None'
+[1.364s] Level 5:colcon.colcon_core.verb:set package 'stretch_sensor_mocap' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.364s] DEBUG:colcon.colcon_core.verb:Building package 'stretch_sensor_mocap' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap', 'merge_install': False, 'path': '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_mocap', 'symlink_install': False, 'test_result_base': None}
+[1.379s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.395s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.395s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs' with build type 'ament_cmake'
+[1.396s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs'
+[1.414s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.414s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.414s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.472s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretch_sensor_mocap:/home/aidenshaevitz/ros2_ws/install/rob599_hw3:/home/aidenshaevitz/ros2_ws/install/rob599_hw2:/opt/ros/humble /usr/bin/cmake /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs -DCMAKE_INSTALL_PREFIX=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs
+[3.004s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretch_sensor_mocap:/home/aidenshaevitz/ros2_ws/install/rob599_hw3:/home/aidenshaevitz/ros2_ws/install/rob599_hw2:/opt/ros/humble /usr/bin/cmake /home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs -DCMAKE_INSTALL_PREFIX=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs
+[3.006s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretch_sensor_mocap:/home/aidenshaevitz/ros2_ws/install/rob599_hw3:/home/aidenshaevitz/ros2_ws/install/rob599_hw2:/opt/ros/humble /usr/bin/cmake --build /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs -- -j12 -l12
+[5.442s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretch_sensor_mocap:/home/aidenshaevitz/ros2_ws/install/rob599_hw3:/home/aidenshaevitz/ros2_ws/install/rob599_hw2:/opt/ros/humble /usr/bin/cmake --build /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs -- -j12 -l12
+[5.539s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretch_sensor_mocap:/home/aidenshaevitz/ros2_ws/install/rob599_hw3:/home/aidenshaevitz/ros2_ws/install/rob599_hw2:/opt/ros/humble /usr/bin/cmake --install /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs
+[5.612s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(stretch_sensor_msgs)
+[5.613s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aidenshaevitz/ros2_ws/install/stretch_sensor_mocap:/home/aidenshaevitz/ros2_ws/install/rob599_hw3:/home/aidenshaevitz/ros2_ws/install/rob599_hw2:/opt/ros/humble /usr/bin/cmake --install /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_msgs
+[5.630s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs' for CMake module files
+[5.631s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs' for CMake config files
+[5.631s] Level 1:colcon.colcon_core.shell:create_environment_hook('stretch_sensor_msgs', 'cmake_prefix_path')
+[5.646s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/cmake_prefix_path.ps1'
+[5.647s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/cmake_prefix_path.dsv'
+[5.647s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/cmake_prefix_path.sh'
+[5.648s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/lib'
+[5.648s] Level 1:colcon.colcon_core.shell:create_environment_hook('stretch_sensor_msgs', 'ld_library_path_lib')
+[5.663s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/ld_library_path_lib.ps1'
+[5.664s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/ld_library_path_lib.dsv'
+[5.664s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/ld_library_path_lib.sh'
+[5.664s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/bin'
+[5.664s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/lib/pkgconfig/stretch_sensor_msgs.pc'
+[5.664s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/lib/python3.10/site-packages'
+[5.665s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/bin'
+[5.681s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.ps1'
+[5.681s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.dsv'
+[5.682s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.sh'
+[5.682s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.bash'
+[5.683s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.zsh'
+[5.683s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/colcon-core/packages/stretch_sensor_msgs)
+[5.792s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(stretch_sensor_msgs)
+[5.813s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs' for CMake module files
+[5.813s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs' for CMake config files
+[5.814s] Level 1:colcon.colcon_core.shell:create_environment_hook('stretch_sensor_msgs', 'cmake_prefix_path')
+[5.835s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/cmake_prefix_path.ps1'
+[5.835s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/cmake_prefix_path.dsv'
+[5.836s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/cmake_prefix_path.sh'
+[5.836s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/lib'
+[5.836s] Level 1:colcon.colcon_core.shell:create_environment_hook('stretch_sensor_msgs', 'ld_library_path_lib')
+[5.852s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/ld_library_path_lib.ps1'
+[5.852s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/ld_library_path_lib.dsv'
+[5.852s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/hook/ld_library_path_lib.sh'
+[5.852s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/bin'
+[5.853s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/lib/pkgconfig/stretch_sensor_msgs.pc'
+[5.853s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/lib/python3.10/site-packages'
+[5.853s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/bin'
+[5.869s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.ps1'
+[5.870s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.dsv'
+[5.870s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.sh'
+[5.871s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.bash'
+[5.871s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/stretch_sensor_msgs/package.zsh'
+[5.872s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/share/colcon-core/packages/stretch_sensor_msgs)
+[5.872s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_mocap' with build type 'ament_python'
+[5.872s] Level 1:colcon.colcon_core.shell:create_environment_hook('stretch_sensor_mocap', 'ament_prefix_path')
+[5.889s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap/hook/ament_prefix_path.ps1'
+[5.889s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap/hook/ament_prefix_path.dsv'
+[5.890s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap/hook/ament_prefix_path.sh'
+[5.907s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.907s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.231s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_mocap'
+[6.247s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.247s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.665s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_mocap': AMENT_PREFIX_PATH=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/lib:/home/aidenshaevitz/ros2_ws/install/stretch_sensor_msgs/lib:/home/aidenshaevitz/ros2_ws/install/rob599_hw3_msgs/lib:/home/aidenshaevitz/ros2_ws/install/rob599_hw2_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/prefix_override:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/stretch_sensor_mocap build --build-base /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/build install --record /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/install.log --single-version-externally-managed
+[6.979s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_mocap' returned '0': AMENT_PREFIX_PATH=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/lib:/home/aidenshaevitz/ros2_ws/install/stretch_sensor_msgs/lib:/home/aidenshaevitz/ros2_ws/install/rob599_hw3_msgs/lib:/home/aidenshaevitz/ros2_ws/install/rob599_hw2_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/prefix_override:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages:/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/stretch_sensor_mocap build --build-base /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/build install --record /home/aidenshaevitz/ros2_ws/src/stretch_sensor/build/stretch_sensor_mocap/install.log --single-version-externally-managed
+[6.994s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap' for CMake module files
+[6.994s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap' for CMake config files
+[6.995s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib'
+[6.995s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/bin'
+[6.995s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/pkgconfig/stretch_sensor_mocap.pc'
+[6.995s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/lib/python3.10/site-packages'
+[6.995s] Level 1:colcon.colcon_core.shell:create_environment_hook('stretch_sensor_mocap', 'pythonpath')
+[7.010s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap/hook/pythonpath.ps1'
+[7.011s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap/hook/pythonpath.dsv'
+[7.011s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap/hook/pythonpath.sh'
+[7.012s] Level 1:colcon.colcon_core.environment:checking '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/bin'
+[7.012s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(stretch_sensor_mocap)
+[7.027s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap/package.ps1'
+[7.028s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap/package.dsv'
+[7.028s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap/package.sh'
+[7.029s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap/package.bash'
+[7.029s] INFO:colcon.colcon_core.shell:Creating package script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/stretch_sensor_mocap/package.zsh'
+[7.029s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/stretch_sensor_mocap/share/colcon-core/packages/stretch_sensor_mocap)
+[7.029s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[7.030s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[7.030s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[7.030s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[7.050s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[7.051s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[7.051s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[7.068s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[7.084s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/local_setup.ps1'
+[7.085s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/_local_setup_util_ps1.py'
+[7.086s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/setup.ps1'
+[7.102s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/local_setup.sh'
+[7.103s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/_local_setup_util_sh.py'
+[7.103s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/setup.sh'
+[7.120s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/local_setup.bash'
+[7.120s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/setup.bash'
+[7.137s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/local_setup.zsh'
+[7.137s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/aidenshaevitz/ros2_ws/src/stretch_sensor/install/setup.zsh'

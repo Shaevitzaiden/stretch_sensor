@@ -1,3 +1,5 @@
 [console_scripts]
-
+reconstruction = stretch_sensor_mocap.sensor_reconstruction:main
+sensor_processor = stretch_sensor_mocap.sensor_data_processing:main
+sensor_publisher = stretch_sensor_mocap.serial_data_publisher:main
 
