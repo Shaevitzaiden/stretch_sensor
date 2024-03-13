@@ -8,31 +8,33 @@ from scipy.spatial.transform import Slerp
 if __name__ == "__main__":
     # First run slerp to get array of quaternions
     sensor_length = 2*np.pi
-    num_interp_quats = 10
-    times = np.linspace(0,1,num_interp_quats)
+    num_interp_quats = 500
+    times = np.linspace(0,10,num_interp_quats)
     unit_vectors = np.zeros([3, num_interp_quats])
     unit_vectors[0,:] = 1*sensor_length/(num_interp_quats-1)
     unit_vectors = np.transpose(unit_vectors)
     
-    rot1 = R.from_euler('xyz',[0,0,30])
-    rot2 = R.from_euler('xyz',[0,0,-30])
+    rot1 = R.from_euler('xyz',[0,0,0])
+    rot2 = R.from_euler('xyz',[0,0,90])
+    rot3 = R.from_euler('xyz',[0,0,180])
     
     quat1 = rot1.as_quat()
-    quat3 = rot2.as_quat()
+    quat2 = rot2.as_quat()
+    quat3 = rot3.as_quat()
     
-    node_quaternions = R.from_quat([quat1, quat3])
-    slerp_object = Slerp([0, 1], node_quaternions)
+    node_quaternions = R.from_quat([quat1, quat2, quat3])
+    slerp_object = Slerp([0, 5, 10], node_quaternions)
 
     # Perform slerp, gets out [start, ...num_interp_quats-2..., End]
     quats = slerp_object(times)
-    print(quats.as_quat())
+    # print(quats.as_quat())
     # Apply rotations to unit vectors
     rotated_vectors = quats.apply(unit_vectors)
     # print(rotated_vectors)
     
     # Sequentially add vectors using cumulative sum
     summed_rotated_vectors = np.cumsum(rotated_vectors, axis=0)
-    # print(summed_rotated_vectors)
+    print(summed_rotated_vectors)
     
     num_vectors = len(summed_rotated_vectors[:])-1
     for i in range(num_vectors):
