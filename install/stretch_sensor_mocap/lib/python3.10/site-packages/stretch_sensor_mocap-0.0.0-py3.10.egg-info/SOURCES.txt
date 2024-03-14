@@ -9,8 +9,13 @@ setup.py
 ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/requires.txt
 ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/top_level.txt
 ../build/stretch_sensor_mocap/stretch_sensor_mocap.egg-info/zip-safe
+launch/stretch_sensor_launch.py
 resource/stretch_sensor_mocap
 stretch_sensor_mocap/__init__.py
+stretch_sensor_mocap/sensor_data_processing.py
+stretch_sensor_mocap/sensor_reconstruction.py
+stretch_sensor_mocap/serial_data_publisher.py
+stretch_sensor_mocap/test_quat_rotations.py
 test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py

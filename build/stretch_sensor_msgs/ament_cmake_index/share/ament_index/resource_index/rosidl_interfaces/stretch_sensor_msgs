@@ -1,0 +1,4 @@
+msg/NodeMessage.idl
+msg/NodeMessage.msg
+msg/NodeMessageArray.idl
+msg/NodeMessageArray.msg

@@ -1,0 +1,7 @@
+{
+  "package_name": "stretch_sensor_msgs",
+  "non_idl_tuples": [
+    "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs:msg/NodeMessage.msg",
+    "/home/aidenshaevitz/ros2_ws/src/stretch_sensor/stretch_sensor_msgs:msg/NodeMessageArray.msg"
+  ]
+}
