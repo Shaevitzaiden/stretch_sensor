@@ -8,7 +8,7 @@ from scipy.spatial.transform import Slerp
 if __name__ == "__main__":
     # First run slerp to get array of quaternions
     sensor_length = 2*np.pi
-    num_interp_quats = 500
+    num_interp_quats = 10
     times = np.linspace(0,10,num_interp_quats)
     unit_vectors = np.zeros([3, num_interp_quats])
     unit_vectors[0,:] = 1*sensor_length/(num_interp_quats-1)
