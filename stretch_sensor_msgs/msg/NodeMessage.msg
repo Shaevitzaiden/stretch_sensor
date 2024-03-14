@@ -3,6 +3,7 @@ std_msgs/Header header
 
 # Orientation
 geometry_msgs/Quaternion quaternion
+geometry_msgs/Point position
 geometry_msgs/Vector3 euler_angles
 int32 rotation_quality
 

@@ -86,7 +86,7 @@ class SensorDataPublisher(Node):
             
             # Header msg
             msgs[i].header.frame_id = str(i)
-            # msg.header.stamp = self.get_clock().now()
+            msgs[i].header.stamp = self.get_clock().now().to_msg()
             
             # Quaternion
             msgs[i].quaternion.x = float(data[9])
