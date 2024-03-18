@@ -65,10 +65,7 @@ ros2 launch stretch_sensor_mocap plotjuggler_launch.py
 
 ## Authors
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+- Aiden Shaevitz
 
 ## Version History
 
