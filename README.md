@@ -69,7 +69,7 @@ ros2 launch stretch_sensor_mocap plotjuggler_launch.py
 
 ## License
 
-This project is licensed under the [LICENSE]
+This project is licensed under the [Mozilla Public License Version 2.0](LICENSE.md)
 
 ## Acknowledgments
 
