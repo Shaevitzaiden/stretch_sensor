@@ -46,21 +46,22 @@ Build
 
 ### Executing program
 
-To run with hardware:
+To run with hardware
 ```
 ros2 launch stretch_sensor_mocap stretch_sensor_launch.py
 ```
-To run example without hardware using pre-recorded data:
+To run example without hardware using pre-recorded data
 ```
 ros2 launch stretch_sensor_mocap stretch_sensor_csv_launch.py
 ```
-
-## Help
-
-Any advise for common problems or issues.
+To launch PlotJuggler with a config for viewing the IMU euler angles and strain sensors
 ```
-command to run if program contains helper info
+ros2 launch stretch_sensor_mocap plotjuggler_launch.py
 ```
+
+## Notes
+
+- While more convenient to launch plotjuggler with the other nodes and rviz, it is launched separately to prevent unknown errors 
 
 ## Authors
 
