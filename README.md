@@ -20,6 +20,11 @@ A project using ROS2 to process sensor data and test 3D reconstruction algorithm
 
         pip install pyserial
 
+### Hardware/Firmware (optional)
+- A SAMD21 based microcontroller board. This project used an [M0 feather](https://www.adafruit.com/product/3403)
+- A minimum of two Bosch BNO085 IMUs (easy to use as a [breakout board](https://www.adafruit.com/product/4754))
+- For firmware the [Arduino IDE](https://www.arduino.cc/en/software) with the appropriate board definition for programming the SAMD21. Instructions on how to set this up [here](https://learn.adafruit.com/adafruit-feather-m0-basic-proto/using-with-arduino-ide)
+
 ### Installing
 
 Make a ROS workspace
