@@ -5,6 +5,8 @@ import serial
 
 # OS
 import os
+from ament_index_python.packages import get_package_share_directory
+
 
 # Other
 import numpy as np
@@ -26,6 +28,13 @@ class SensorDataPublisher(Node):
         # csv_dir = os.path.abspath(os.path.join(os.getcwd(), os.pardir, 'resource', '5-node_sensor-v2_single-bend-point.csv'))
         # csv_dir = os.path.abspath(os.path.join(os.getcwd(), os.pardir, 'resource', '5-node_sensor-v2_double-bend_points.csv'))
         
+        csv_data_dir = os.path.join(
+        get_package_share_directory('stretch_sensor_mocap'),
+            'resource',
+            '5-node_sensor-v2_single-bend-point.csv'
+            )
+        
+        
         self.declare_parameters(
             namespace="",
             parameters=[
@@ -33,12 +42,14 @@ class SensorDataPublisher(Node):
                 ('baudrate', 115200),
                 ('num_nodes', 5),
                 ('node_data_size', 14),
-                ('node_sample_freq', 100),
-                ('csv_dir', csv_dir)
+                ('node_sample_freq', 400),
+                ('csv_dir', csv_data_dir)
             ]
         )  
         print('---------------------------------------------------------------------------------------')
-        print(self.get_parameter('csv_dir').get_parameter_value().string_value)
+        # print(self.get_parameter('csv_dir').get_parameter_value().string_value)
+        
+        time.sleep(1)
         
         # Data from csv to stream
         self.data = np.loadtxt(self.get_parameter('csv_dir').get_parameter_value().string_value, delimiter=',')

@@ -27,9 +27,9 @@ def generate_launch_description():
         parameters=[
             {'serial_port': "/dev/ttyACM0"},
             {'baudrate': 115200},
-            {'num_nodes': 2},
+            {'num_nodes': 5},
             {'node_data_size': 14},
-            {'node_sample_freq': 200},
+            {'node_sample_freq': 400},
             {'csv_dir', csv_data_dir}
         ]
         )
@@ -38,7 +38,7 @@ def generate_launch_description():
         package='stretch_sensor_mocap',
         executable='sensor_processor',
         parameters=[
-            {'num_nodes': 2},
+            {'num_nodes': 5},
             {'node_data_size': 14},
         ]
         )
@@ -47,7 +47,7 @@ def generate_launch_description():
         package='stretch_sensor_mocap',
         executable='reconstruction',
         parameters=[
-            {'num_nodes': 2},
+            {'num_nodes': 5},
             {'slerp_size': 10},
             {'marker_publish_freq': 15}
         ]
