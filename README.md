@@ -4,11 +4,16 @@ A project using ROS2 to process sensor data and test 3D reconstruction algorithm
 
 ## Description
 
-The goal of this project was to take our custom stretchable sensing hardware and integrate it into a real-time pipeline to provide on-the-fly results during testing. Post-processing large amounts of data after running experiments is clunky and limits troubleshooting capabilities. This project demonstrates one method of using ROS2 and a microcontroller streaming data through pyserial to visualize time-series data and 3D estimates of our sensor's orientation in space. While specific hardware is required for this project to be implemented without modification, example data from previous experiments are provided as well as a ROS2 node that emulates the datastream of the microntroller so that the visuals can be tested.
+The goal of this project was to take our custom stretchable sensing hardware and integrate it into a real-time pipeline to provide on-the-fly results during testing. Post-processing large amounts of data after running experiments is clunky and limits troubleshooting capabilities. This project demonstrates one method of using ROS2 and a microcontroller streaming data through pyserial to visualize time-series data and 3D estimates of our sensor's orientation in space. While specific hardware is required (only the sensor data types and organization really need to match) for this project to be implemented without modification, example data from previous experiments are provided as well as a ROS2 node that emulates the datastream of the microntroller so that the visuals can be tested.
+
+ADD IN A GIF HERE
 
 ### Sensor Hardware
 
 Add image of sensor and light description of strain sensors and IMU outputs
+
+### 3D Reconstruction
+
 
 ## Getting Started
 
