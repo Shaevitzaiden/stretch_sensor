@@ -46,9 +46,13 @@ Build
 
 ### Executing program
 
-To run
+To run with hardware:
 ```
-code blocks for commands
+ros2 launch stretch_sensor_mocap stretch_sensor_launch.py
+```
+To run example without hardware using pre-recorded data:
+```
+ros2 launch stretch_sensor_mocap stretch_sensor_csv_launch.py
 ```
 
 ## Help
