@@ -18,6 +18,7 @@ This sensor is a custom fabrication out of the Oregon State University SIM lab a
 3D state estimates of the sensors are performed using discrete curvature reconstruction. This is functionally accomplished in three main steps. First, a quaternion slerp (using scipy) is run between the quaternion estimates produced by the IMUs on each sensor node. Second, the a set of unit vectors are rotated by the quaternions and scaled by the length of the strain sensors divided by the number of quaternion interpolations. Lastly, the scaled and rotated vectors are added to produce an estimate of the sensor nodes relative poses.
 
 ### Visuals
+There are two visualization tools used in this project. The first is rviz, and the second is plotjuggler. Rviz is used to show the set of rotations produced through the quaternion interpolation. The positions of the frames are in their estimated location acquired through the discrete curvature reconstruction. Plotjuggler is used to view the streams of IMU data, namely the gyroscope, acceleration, and euler angle representations of the rotations (as opposed to trying and interpreting the quaternion components). It is also used to look at the strain sensor information, such as the resistance, strain, and current length of the sensors.
 
 <p align="center">
   <img src="doc/sensor_vis_project.gif">
