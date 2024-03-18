@@ -8,7 +8,7 @@ The goal of this project was to take our custom stretchable sensing hardware and
 
 ### Sensor Hardware
 <p align="center">
-  <img src="doc/">
+  <img src="doc/sensor.png">
 </p>
 Add image of sensor and light description of strain sensors and IMU outputs
 
