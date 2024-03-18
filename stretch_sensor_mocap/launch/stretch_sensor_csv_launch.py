@@ -15,16 +15,22 @@ def generate_launch_description():
         'config',
         'juggler_test.xml')
     
+    csv_data_dir = os.path.join(
+        get_package_share_directory('stretch_sensor_mocap'),
+        'resource',
+        '5-node_sensor-v2_single-bend-point.csv')
+    
     # node using pyserial to sample sensors
     launch_serial = Node(
         package='stretch_sensor_mocap',
-        executable='sensor_publisher',
+        executable='csv_sensor_publisher',
         parameters=[
             {'serial_port': "/dev/ttyACM0"},
             {'baudrate': 115200},
             {'num_nodes': 2},
             {'node_data_size': 14},
-            {'node_sample_freq': 200}
+            {'node_sample_freq': 200},
+            {'csv_dir', csv_data_dir}
         ]
         )
     

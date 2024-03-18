@@ -23,10 +23,10 @@ class SensorDataSubscriber(Node):
         self.declare_parameters(
             namespace="",
             parameters=[
-                ('num_nodes', 2),
+                ('num_nodes', 5),
                 ('node_data_size', 14),
             ]
-        )  
+        )
 
         # Create subscription to sensor data
         self.sensor_subscription = self.create_subscription(NodeMessageArray, 'sensor_data', self.callback, 10)
@@ -59,7 +59,7 @@ class SensorDataSubscriber(Node):
     def _process_IMU_data(self, msg):
         for i, sensor_node in enumerate(msg.node_data):    
             # Store most recent gyroscope values for each node in a separate deque
-            self.gyroscope_history[i].appendleft([sensor_node.gyroscope.x, sensor_node.gyroscope.y, sensor_node.gyroscope.z])
+            # self.gyroscope_history[i].appendleft([sensor_node.gyroscope.x, sensor_node.gyroscope.y, sensor_node.gyroscope.z])
             # Average value in each column (x, y, z)
             avg_angular_velocities = np.mean(self.gyroscope_history[i], axis=0)
         

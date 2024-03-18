@@ -28,8 +28,8 @@ class PoseEstimator(Node):
         self.declare_parameters(
             namespace="",
             parameters=[
-                ('num_nodes', 2),
-                ('slerp_size', 15),
+                ('num_nodes', 5),
+                ('slerp_size', 20),
                 ('marker_publish_freq', 15)
             ]
         )  
@@ -42,7 +42,7 @@ class PoseEstimator(Node):
 
         # Publisher for visualizing quaternion coordinate frames in rviz
         self.marker_counter = 0
-        self.test_scalar = 5
+        self.visuals_scalar = 20
         self.coordinate_marker_publisher = self.create_publisher(MarkerArray, "coordinates_frame_markers", 10)
         
         # Thread the marker publishing at a set frequency
@@ -92,9 +92,12 @@ class PoseEstimator(Node):
             rotated_x_vectors = quats.apply(x_vecs)
             
             # ------- Add vectors -------
-            summed_rotated_x_vectors = np.cumsum(rotated_x_vectors, axis=0)
-            strain_scaled_rotated_x_vectors = self.test_scalar*summed_rotated_x_vectors/(num_interp_quats-1)
-            self.most_recent_reconstruction = [strain_scaled_rotated_x_vectors, quats]
+            length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
+            strain_scaled_rotated_x_vectors = length*rotated_x_vectors
+            summed_strain_scaled_rotated_x_vectors = np.cumsum(strain_scaled_rotated_x_vectors, axis=0)
+            length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
+            
+            self.most_recent_reconstruction = [self.visuals_scalar*summed_strain_scaled_rotated_x_vectors, quats]
             # Store the pose of node i+1 (i=0 assumed to be at origin)
         return msg
 
@@ -136,14 +139,14 @@ class PoseEstimator(Node):
         
         for i in range(len(rotated_x_vec[:,0])):
             # Make point lists for each arrow x, y, z
-            p_x = [self._make_point(origins[i]), self._make_point(self.test_scalar*rotated_x_vec[i]/(slerp_size-1)+origins[i])]
-            p_y = [self._make_point(origins[i]), self._make_point(self.test_scalar*rotated_y_vec[i]/(slerp_size-1)+origins[i])]
-            p_z = [self._make_point(origins[i]), self._make_point(self.test_scalar*rotated_z_vec[i]/(slerp_size-1)+origins[i])]
+            p_x = [self._make_point(origins[i]), self._make_point(rotated_x_vec[i]/(slerp_size-1)+origins[i])]
+            p_y = [self._make_point(origins[i]), self._make_point(rotated_y_vec[i]/(slerp_size-1)+origins[i])]
+            p_z = [self._make_point(origins[i]), self._make_point(rotated_z_vec[i]/(slerp_size-1)+origins[i])]
         
             # create arrows 
-            m_x = self.create_arrow_marker_msg(p_x, color=colors[0], scale=[0.5/slerp_size,1.2/slerp_size,0.0])
-            m_y = self.create_arrow_marker_msg(p_y, color=colors[1], scale=[0.5/slerp_size,1.2/slerp_size,0.0])
-            m_z = self.create_arrow_marker_msg(p_z, color=colors[2], scale=[0.5/slerp_size,1.2/slerp_size,0.0])
+            m_x = self.create_arrow_marker_msg(p_x, color=colors[0], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
+            m_y = self.create_arrow_marker_msg(p_y, color=colors[1], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
+            m_z = self.create_arrow_marker_msg(p_z, color=colors[2], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
             
             # add arrows to temporary marker array
             marker_array_temp.append(m_x)
