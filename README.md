@@ -10,7 +10,8 @@ The goal of this project was to take our custom stretchable sensing hardware and
 <p align="center">
   <img src="doc/sensor.png">
 </p>
-Add image of sensor and light description of strain sensors and IMU outputs
+
+This sensor is a custom fabrication out of the Oregon State University SIM lab and IMML lab. It's body is made of a soft Ecoflex silicone and all wiring is done using a liquid metal paste. Most importantly for this project is that there are two forms of sensing. There are [9-axis IMUs](https://www.digikey.com/en/products/detail/ceva-technologies-inc/BNO085/9445940) on each sensor node (not to be confused with ROS2 node) embedded in the silicone. These IMUs have built in microcontrollers that perform state estimation and produce quaternion estimates of the IMUs orientation in space. Second, there are liquid metal paste strain sensors that run between the sensor nodes. 
 
 ### 3D Reconstruction
 
