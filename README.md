@@ -15,7 +15,9 @@ This sensor is a custom fabrication out of the Oregon State University SIM lab a
 
 ### 3D Reconstruction
 
-ADD IN A GIF HERE
+3D state estimates of the sensors are performed using discrete curvature reconstruction. This is functionally accomplished in three main steps. First, a quaternion slerp (using scipy) is run between the quaternion estimates produced by the IMUs on each sensor node. Second, the a set of unit vectors are rotated by the quaternions and scaled by the length of the strain sensors divided by the number of quaternion interpolations. Lastly, the scaled and rotated vectors are added to produce an estimate of the sensor nodes relative poses.
+
+### Visuals
 
 ## Getting Started
 
