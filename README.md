@@ -19,6 +19,10 @@ This sensor is a custom fabrication out of the Oregon State University SIM lab a
 
 ### Visuals
 
+<p align="center">
+  <img src="doc/sensor_vis_project.gif">
+</p>
+
 ## Getting Started
 
 ### Dependencies
