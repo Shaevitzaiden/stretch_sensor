@@ -51,7 +51,7 @@ Make a ROS workspace
 
 Clone this repository
 
-    git clone git@github.com:ali-clara/apple_gripper.git
+    git clone git@github.com:Shaevitzaiden/stretch_sensor.git
 
 Install all dependencies with [rosdep](https://docs.ros.org/en/humble/Tutorials/Intermediate/Rosdep.html)
 
@@ -81,7 +81,7 @@ ros2 launch stretch_sensor_mocap plotjuggler_launch.py
 
 - While more convenient to launch plotjuggler with the other nodes and rviz, it is launched separately to prevent unknown errors 
 
-## Authors
+## Author
 
 - Aiden Shaevitz
 
