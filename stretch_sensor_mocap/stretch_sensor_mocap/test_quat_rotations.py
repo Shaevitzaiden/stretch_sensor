@@ -38,10 +38,10 @@ if __name__ == "__main__":
     
     ############################################################3
     sensor_lengths = [1, 2]
-    num_interp_quats = 3
+    # num_interp_quats = 4
     
     # List comprehension of lists containing quaternion components for each sensor node
-    quats_array = [[0, 0, i*0.1, 1.0] for i in range(len([1,2,3]))]
+    quats_array = [[0, 0, i*0.1, 1.0] for i in [1,2,3]]
     print("\n quats array")
     print(quats_array)
     # Window where each 
@@ -54,14 +54,17 @@ if __name__ == "__main__":
     slerp_object = Slerp(slerp_window, node_quaternions)
 
     # Perform slerp with num_inter_quats between each quaternion, gets out [start, ...num_interp_quats-2..., End]
-    times = np.linspace(0, slerp_window[-1], num_interp_quats*len(quats_array))
+    # times = np.linspace(0, slerp_window[-1], num_interp_quats*len(quats_array))
+    m = 4
+    times = np.arange(0, (slerp_window[-1])*m)/m
+    times = np.append(times,slerp_window[-1])
     print("\n times")
     print(times)
     print(len(times))
     quats = slerp_object(times)
     
     # Make vectors using vector corresponding to direction axis strain sensor is attached to
-    x_vecs = np.zeros([num_interp_quats*len(quats_array), 3])
+    x_vecs = np.zeros([len(times), 3])
     x_vecs[:,1] = 1
     
     # Rotate vectors 
@@ -72,25 +75,33 @@ if __name__ == "__main__":
     print(" \n summed_rotated_vectors")
     print(summed_rotated_x_vectors)
     print(summed_rotated_x_vectors.shape)
-    idx_multiplier = len(times)/(len(quats_array)-1)
-    print(idx_multiplier)
-    idxs = np.linspace(0, len(times), len(quats_array))-1
-    idxs[0] = 0
-    print(idxs)
+    
+    print("-----------------------------------------")
+    idx_multiplier = m
+    idxs = []
     for i in range(len(quats_array)):
-        print(summed_rotated_x_vectors[int(idxs[i])])
+        print(summed_rotated_x_vectors[i*m])
+        idxs.append(i*m)
+    print(idxs)
     # Scale the vectors by the length of the strain sensors divided by the number of segments
     
     # strain_scaled_rotated_x_vectors = *summed_rotated_x_vectors/(num_interp_quats-1)
-    
-    # num_vectors = len(summed_rotated_vectors[:])-1
-    # for i in range(num_vectors):
-    #     (x0,y0,z0) = summed_rotated_vectors[i,:]
-    #     (x1,y1,z1) = summed_rotated_vectors[i+1,:]
-    #     plt.plot([x0, x1], [y0, y1])
-    #     if i == 0:
-    #         plt.plot(x0,y0,'*',markersize=10,color='green')
-    #     if i == (num_vectors-1):
-    #         plt.plot(x1,y1,'*',markersize=10,color='red')
+    print("========================================")
+    num_vectors = len(summed_rotated_x_vectors[:])
+    print(num_vectors)
+    for i in range(num_vectors):
+        (x0,y0,z0) = summed_rotated_x_vectors[i,:]
+        if i < num_vectors-1:
+            (x1,y1,z1) = summed_rotated_x_vectors[i+1,:]
+            plt.plot([x0, x1], [y0, y1], color='black')
+            plt.plot(x1, y1,'o', color='black')
+        print(i)
+        if i == idxs[0]:
+            plt.plot(x0,y0,'*',markersize=10,color='green')
+            idxs.pop(0)
+        # if i == 0:
+        #     plt.plot(x0,y0,'*',markersize=10,color='green')
+        # if i == (num_vectors-1):
+        #     plt.plot(x1,y1,'*',markersize=10,color='red')
 
-    # plt.show()
+    plt.show()
