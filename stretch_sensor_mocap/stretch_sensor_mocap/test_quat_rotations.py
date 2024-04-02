@@ -95,7 +95,7 @@ if __name__ == "__main__":
             (x1,y1,z1) = summed_rotated_x_vectors[i+1,:]
             plt.plot([x0, x1], [y0, y1], color='black')
             plt.plot(x1, y1,'o', color='black')
-        print(i)
+        # print(i)
         if i == idxs[0]:
             plt.plot(x0,y0,'*',markersize=10,color='green')
             idxs.pop(0)
