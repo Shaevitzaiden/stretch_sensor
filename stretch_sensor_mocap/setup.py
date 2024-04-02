@@ -16,6 +16,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
         (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*[.rviz,.xml]*'))),
+        (os.path.join('share', package_name, 'resource'), glob(os.path.join('resource', '*[.csv]*'))),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -28,7 +29,8 @@ setup(
         'console_scripts': [
             'sensor_publisher = stretch_sensor_mocap.serial_data_publisher:main',
             'sensor_processor = stretch_sensor_mocap.sensor_data_processing:main',
-            'reconstruction = stretch_sensor_mocap.sensor_reconstruction:main'
+            'reconstruction = stretch_sensor_mocap.sensor_reconstruction:main',
+            'csv_sensor_publisher = stretch_sensor_mocap.csv_stream:main'
         ],
     },
 )
