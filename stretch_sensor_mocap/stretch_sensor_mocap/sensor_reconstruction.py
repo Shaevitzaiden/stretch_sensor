@@ -70,35 +70,37 @@ class PoseEstimator(Node):
 
         # Actual base reconstruction algorithm based on quaternion slerp
         num_interp_quats = self.get_parameter('slerp_size').get_parameter_value().integer_value
+        m = num_interp_quats + 1
+        
+        slerp_window = np.arange(len(num_interp_quats)) 
+        
+        m = num_interp_quats + 1
+        
         times = np.linspace(0,1,num_interp_quats)
-        for i in range(len(msg.node_data)-1):
-            # First run slerp to get array of quaternions
-            quat1 = [msg.node_data[i].quaternion.x, msg.node_data[i].quaternion.y, msg.node_data[i].quaternion.z, msg.node_data[i].quaternion.w]
-            quat2 = [msg.node_data[i+1].quaternion.x, msg.node_data[i+1].quaternion.y, msg.node_data[i+1].quaternion.z, msg.node_data[i+1].quaternion.w]
-            
-            node_quaternions = R.from_quat([quat1, quat2])
-            slerp_object = Slerp([0, 1], node_quaternions)
+           
+        node_quaternions = R.from_quat([quat1, quat2])
+        slerp_object = Slerp([0, 1], node_quaternions)
 
-            # Perform slerp, gets out [start, ...num_interp_quats-2..., End]
-            quats = slerp_object(times)
-            
-            # Rotate a bunch of vectors by quaternions of length decided by the strain sensor length divided by the number of segments
-            # Add vectors to get next node location
-            # ------- Make vectors ------ use vector corresponding to direction axis strain sensor is attached to
-            x_vecs = np.zeros([num_interp_quats, 3])
-            x_vecs[:,1] = 1
-            
-            # ------- Rotate vectors ----
-            rotated_x_vectors = quats.apply(x_vecs)
-            
-            # ------- Add vectors -------
-            length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
-            strain_scaled_rotated_x_vectors = length*rotated_x_vectors
-            summed_strain_scaled_rotated_x_vectors = np.cumsum(strain_scaled_rotated_x_vectors, axis=0)
-            length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
-            
-            self.most_recent_reconstruction = [self.visuals_scalar*summed_strain_scaled_rotated_x_vectors, quats]
-            # Store the pose of node i+1 (i=0 assumed to be at origin)
+        # Perform slerp, gets out [start, ...num_interp_quats-2..., End]
+        quats = slerp_object(times)
+        
+        # Rotate a bunch of vectors by quaternions of length decided by the strain sensor length divided by the number of segments
+        # Add vectors to get next node location
+        # ------- Make vectors ------ use vector corresponding to direction axis strain sensor is attached to
+        x_vecs = np.zeros([num_interp_quats, 3])
+        x_vecs[:,1] = 1
+        
+        # ------- Rotate vectors ----
+        rotated_x_vectors = quats.apply(x_vecs)
+        
+        # ------- Add vectors -------
+        length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
+        strain_scaled_rotated_x_vectors = length*rotated_x_vectors
+        summed_strain_scaled_rotated_x_vectors = np.cumsum(strain_scaled_rotated_x_vectors, axis=0)
+        length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
+        
+        self.most_recent_reconstruction = [self.visuals_scalar*summed_strain_scaled_rotated_x_vectors, quats]
+        # Store the pose of node i+1 (i=0 assumed to be at origin)
         return msg
 
     def marker_publish_callback(self):
