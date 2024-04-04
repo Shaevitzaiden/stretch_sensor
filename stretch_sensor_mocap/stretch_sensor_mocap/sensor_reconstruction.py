@@ -67,19 +67,21 @@ class PoseEstimator(Node):
         #     # --------------- Will need to update messages in the msg package for this to work (need to add point msg)
         #     self.pose_estimate_history[i].appendleft([sensor_node.position.x, sensor_node.position.y, sensor_node.position.z, 
         #                                               sensor_node.quaternion.x, sensor_node.quaternion.y, sensor_node.quaternion.z, sensor_node.quaternion.w])
-
+        quats_array = [[node.quaternion.x, node.quaternion.y, node.quaternion.z, node.quaternion.w] for node in msg.node_data]
+        
         # Actual base reconstruction algorithm based on quaternion slerp
         num_interp_quats = self.get_parameter('slerp_size').get_parameter_value().integer_value
         m = num_interp_quats + 1
         
         slerp_window = np.arange(len(num_interp_quats)) 
-        
-        m = num_interp_quats + 1
-        
-        times = np.linspace(0,1,num_interp_quats)
            
-        node_quaternions = R.from_quat([quat1, quat2])
-        slerp_object = Slerp([0, 1], node_quaternions)
+        node_quaternions = R.from_quat(quats_array)
+    
+        # Make slerp object from window and quaternions
+        slerp_object = Slerp(slerp_window, node_quaternions)
+        
+        times = np.arange(0, (slerp_window[-1])*m)/m
+        times = np.append(times,slerp_window[-1])
 
         # Perform slerp, gets out [start, ...num_interp_quats-2..., End]
         quats = slerp_object(times)
@@ -87,13 +89,14 @@ class PoseEstimator(Node):
         # Rotate a bunch of vectors by quaternions of length decided by the strain sensor length divided by the number of segments
         # Add vectors to get next node location
         # ------- Make vectors ------ use vector corresponding to direction axis strain sensor is attached to
-        x_vecs = np.zeros([num_interp_quats, 3])
+        x_vecs = np.zeros([len(times), 3])
         x_vecs[:,1] = 1
         
         # ------- Rotate vectors ----
         rotated_x_vectors = quats.apply(x_vecs)
         
         # ------- Add vectors -------
+        for 
         length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
         strain_scaled_rotated_x_vectors = length*rotated_x_vectors
         summed_strain_scaled_rotated_x_vectors = np.cumsum(strain_scaled_rotated_x_vectors, axis=0)
