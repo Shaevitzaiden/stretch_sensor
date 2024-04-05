@@ -29,7 +29,7 @@ class PoseEstimator(Node):
             namespace="",
             parameters=[
                 ('num_nodes', 5),
-                ('slerp_size', 20),
+                ('slerp_size', 5),
                 ('marker_publish_freq', 15)
             ]
         )  
@@ -73,8 +73,8 @@ class PoseEstimator(Node):
         num_interp_quats = self.get_parameter('slerp_size').get_parameter_value().integer_value
         m = num_interp_quats + 1
         
-        slerp_window = np.arange(len(num_interp_quats)) 
-           
+        slerp_window = np.arange(self.get_parameter('num_nodes').get_parameter_value().integer_value) 
+        
         node_quaternions = R.from_quat(quats_array)
     
         # Make slerp object from window and quaternions
@@ -92,15 +92,20 @@ class PoseEstimator(Node):
         x_vecs = np.zeros([len(times), 3])
         x_vecs[:,1] = 1
         
-        # ------- Rotate vectors ----
-        rotated_x_vectors = quats.apply(x_vecs)
+        # ------- Scale vectors by strain sensor lengths -------
+        for i, node in enumerate(msg.node_data):
+            if i == 0:
+                x_vecs[i*m:(i+1)*m] = x_vecs[i*m:(i+1)*m] * node.length[0] / 1000/ m    
+            else:
+                x_vecs[i*m:(i+1)*m+1] = x_vecs[i*m:(i+1)*m+1] * node.length[0] / 1000/ m
         
-        # ------- Add vectors -------
-        for 
-        length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
-        strain_scaled_rotated_x_vectors = length*rotated_x_vectors
-        summed_strain_scaled_rotated_x_vectors = np.cumsum(strain_scaled_rotated_x_vectors, axis=0)
-        length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
+            # length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
+            # strain_scaled_rotated_x_vectors = length*rotated_x_vectors
+        # ------- Rotate vectors ----
+        rotated_scaled_x_vectors = quats.apply(x_vecs)    
+            
+        summed_strain_scaled_rotated_x_vectors = np.cumsum(rotated_scaled_x_vectors, axis=0)
+            # length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
         
         self.most_recent_reconstruction = [self.visuals_scalar*summed_strain_scaled_rotated_x_vectors, quats]
         # Store the pose of node i+1 (i=0 assumed to be at origin)
@@ -116,11 +121,13 @@ class PoseEstimator(Node):
     def create_coordinate_marker_array(self):
         slerp_size = self.get_parameter('slerp_size').get_parameter_value().integer_value
         [current_points, current_slerp] = self.most_recent_reconstruction
-        x = np.zeros([slerp_size, 3])
+        # print(slerp_size)
+        # print(len(current_points))
+        x = np.zeros([len(current_points), 3])
         x[:,0] = 1
-        y = np.zeros([slerp_size, 3])
+        y = np.zeros([len(current_points), 3])
         y[:,1] = 1
-        z = np.zeros([slerp_size, 3])
+        z = np.zeros([len(current_points), 3])
         z[:,2] = 1
         unit_vectors = [x, y, z]
         # green, red, blue
@@ -143,15 +150,17 @@ class PoseEstimator(Node):
         
         
         for i in range(len(rotated_x_vec[:,0])):
+            # print(i)
             # Make point lists for each arrow x, y, z
             p_x = [self._make_point(origins[i]), self._make_point(rotated_x_vec[i]/(slerp_size-1)+origins[i])]
             p_y = [self._make_point(origins[i]), self._make_point(rotated_y_vec[i]/(slerp_size-1)+origins[i])]
             p_z = [self._make_point(origins[i]), self._make_point(rotated_z_vec[i]/(slerp_size-1)+origins[i])]
-        
+            # print(p_x[0], p_x[1])
             # create arrows 
-            m_x = self.create_arrow_marker_msg(p_x, color=colors[0], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
-            m_y = self.create_arrow_marker_msg(p_y, color=colors[1], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
-            m_z = self.create_arrow_marker_msg(p_z, color=colors[2], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
+            scale = [0.1/slerp_size,0.25/slerp_size,0.0]
+            m_x = self.create_arrow_marker_msg(p_x, color=colors[0], scale=scale)
+            m_y = self.create_arrow_marker_msg(p_y, color=colors[1], scale=scale)
+            m_z = self.create_arrow_marker_msg(p_z, color=colors[2], scale=scale)
             
             # add arrows to temporary marker array
             marker_array_temp.append(m_x)
@@ -160,6 +169,7 @@ class PoseEstimator(Node):
         
         # Populate marker array message with arrows
         marker_array.markers = marker_array_temp
+        # print(len(marker_array_temp))
         return marker_array
     
     @staticmethod

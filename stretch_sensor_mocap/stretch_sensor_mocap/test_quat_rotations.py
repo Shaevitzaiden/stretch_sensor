@@ -37,7 +37,7 @@ if __name__ == "__main__":
     # print(summed_rotated_vectors)
     
     ############################################################3
-    sensor_lengths = [1, 2]
+    sensor_lengths = [1, 1]
     # num_interp_quats = 4
     
     # List comprehension of lists containing quaternion components for each sensor node
@@ -55,7 +55,7 @@ if __name__ == "__main__":
 
     # Perform slerp with num_inter_quats between each quaternion, gets out [start, ...num_interp_quats-2..., End]
     # times = np.linspace(0, slerp_window[-1], num_interp_quats*len(quats_array))
-    m = 4
+    m = 3
     times = np.arange(0, (slerp_window[-1])*m)/m
     times = np.append(times,slerp_window[-1])
     print("\n times")
@@ -65,7 +65,20 @@ if __name__ == "__main__":
     
     # Make vectors using vector corresponding to direction axis strain sensor is attached to
     x_vecs = np.zeros([len(times), 3])
-    x_vecs[:,1] = 1
+    x_vecs[:,0] = 1
+    
+    # Scale x vectors by length array
+    print("Length scaling stuff")
+    print(len(times))
+    idx_multiplier = m
+    idxs = []
+    print(x_vecs)
+    for i in range(0,len(quats_array)-1):
+        if i == 0:
+            x_vecs[i*m:(i+1)*m] = x_vecs[i*m:(i+1)*m] * sensor_lengths[i] / m    
+        else:
+            x_vecs[i*m:(i+1)*m+1] = x_vecs[i*m:(i+1)*m+1] * sensor_lengths[i] / m
+        
     
     # Rotate vectors 
     rotated_x_vectors = quats.apply(x_vecs)
