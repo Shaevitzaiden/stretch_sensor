@@ -116,25 +116,26 @@ class PoseEstimator(Node):
             msg.node_data[i+1].position = endpoint
             
             # store vectors and slerped quats in temporary arrays
-            temp_vec_array.append(summed_vectors)
-            temp_quats_array.append(quats)
-            
+            temp_vec_array.append([summed_vectors, quats])
                 
-        self.most_recent_reconstruction = [temp_vec_array, temp_quats_array]
+        self.most_recent_reconstruction = temp_vec_array
             
         return msg
 
     def marker_publish_callback(self):
         if self.most_recent_reconstruction is not None:
-            self.coordinate_marker_publisher.publish(self.create_coordinate_marker_array())
+            vec_quat_array = self.most_recent_reconstruction
+            self.coordinate_marker_publisher.publish(self.create_coordinate_marker_array(vec_quat_array))
             
             # reset marker counter
             self.marker_counter = 0
     
-    def create_coordinate_marker_array(self):
+    def create_coordinate_marker_array(self,  vec_quat_array):
         slerp_size = self.get_parameter('slerp_size').get_parameter_value().integer_value
         [current_points, current_slerp] = self.most_recent_reconstruction
         x = np.zeros([slerp_size, 3])
+        
+        # Vectors for making coordinate frame markers
         x[:,0] = 1
         y = np.zeros([slerp_size, 3])
         y[:,1] = 1
