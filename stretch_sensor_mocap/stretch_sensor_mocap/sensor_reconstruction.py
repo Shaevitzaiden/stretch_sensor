@@ -71,6 +71,11 @@ class PoseEstimator(Node):
         # Actual base reconstruction algorithm based on quaternion slerp
         num_interp_quats = self.get_parameter('slerp_size').get_parameter_value().integer_value
         times = np.linspace(0,1,num_interp_quats)
+        
+        # temp arrays for each set of rotated, scaled, summed vectors and slerped quats between each node
+        temp_vec_array = []
+        temp_quats_array = []
+        
         for i in range(len(msg.node_data)-1):
             # First run slerp to get array of quaternions
             quat1 = [msg.node_data[i].quaternion.x, msg.node_data[i].quaternion.y, msg.node_data[i].quaternion.z, msg.node_data[i].quaternion.w]
@@ -88,17 +93,35 @@ class PoseEstimator(Node):
             x_vecs = np.zeros([num_interp_quats, 3])
             x_vecs[:,1] = 1
             
+            # Length of strain sensor divided by 1000 (convert from mm to m) and divide by number of segments
+            scaled_vectors = x_vecs * msg.node_data[i].sensor_length[0] / 1000 / num_interp_quats
+            
             # ------- Rotate vectors ----
-            rotated_x_vectors = quats.apply(x_vecs)
+            rotated_x_vectors = quats.apply(scaled_vectors)
             
             # ------- Add vectors -------
-            length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
-            strain_scaled_rotated_x_vectors = length*rotated_x_vectors
-            summed_strain_scaled_rotated_x_vectors = np.cumsum(strain_scaled_rotated_x_vectors, axis=0)
-            length = msg.node_data[i].length[0]/1000/(num_interp_quats-1)
+            summed_vectors = np.cumsum(rotated_x_vectors, axis=0)
             
-            self.most_recent_reconstruction = [self.visuals_scalar*summed_strain_scaled_rotated_x_vectors, quats]
-            # Store the pose of node i+1 (i=0 assumed to be at origin)
+            # Positions (just add [0,0,0] to vectors)
+            positions = np.vstack([[0.0, 0.0, 0.0], summed_vectors])
+            
+            # endpoint estimate 
+            endpoint = positions[-1]
+            
+            # Assign position of first node
+            if i == 0:
+                msg.node_data[i].position = positions[0]
+            
+            # Assign endpoint position for next node
+            msg.node_data[i+1].position = endpoint
+            
+            # store vectors and slerped quats in temporary arrays
+            temp_vec_array.append(summed_vectors)
+            temp_quats_array.append(quats)
+            
+                
+        self.most_recent_reconstruction = [temp_vec_array, temp_quats_array]
+            
         return msg
 
     def marker_publish_callback(self):
