@@ -105,6 +105,9 @@ class PoseEstimator(Node):
             # Positions (just add [0,0,0] to vectors)
             positions = np.vstack([[0.0, 0.0, 0.0], summed_vectors])
             
+            if i > 0:
+                positions = positions + endpoint
+            
             # endpoint estimate 
             endpoint = positions[-1]
             
@@ -116,7 +119,7 @@ class PoseEstimator(Node):
             msg.node_data[i+1].position = endpoint
             
             # store vectors and slerped quats in temporary arrays
-            temp_vec_array.append([summed_vectors, quats])
+            temp_vec_array.append([summed_vectors, quats, positions])
                 
         self.most_recent_reconstruction = temp_vec_array
             
@@ -132,16 +135,7 @@ class PoseEstimator(Node):
     
     def create_coordinate_marker_array(self,  vec_quat_array):
         slerp_size = self.get_parameter('slerp_size').get_parameter_value().integer_value
-        [current_points, current_slerp] = self.most_recent_reconstruction
-        x = np.zeros([slerp_size, 3])
         
-        # Vectors for making coordinate frame markers
-        x[:,0] = 1
-        y = np.zeros([slerp_size, 3])
-        y[:,1] = 1
-        z = np.zeros([slerp_size, 3])
-        z[:,2] = 1
-        unit_vectors = [x, y, z]
         # green, red, blue
         colors = [[0.0,1.0,0.0,1.0],[1.0,0.0,0.0,1.0],[0.0,0.0,1.0,1.0]]
         
@@ -150,35 +144,46 @@ class PoseEstimator(Node):
         # list to store markers in before putting in marker array
         marker_array_temp = []
         
-        # Rotate unit vectors by all quaternions produced by slerp
-        rotated_x_vec = current_slerp.apply(x)
-        rotated_y_vec = current_slerp.apply(y)
-        rotated_z_vec = current_slerp.apply(z)
-        
-        # # array of vector positions to place coordinate frames origins at
-        # origins = np.zeros([slerp_size, 3])
-        # origins[:,0] = np.arange(slerp_size)
-        origins = np.vstack([np.array([0,0,0]), current_points])
-        
-        
-        for i in range(len(rotated_x_vec[:,0])):
-            # Make point lists for each arrow x, y, z
-            p_x = [self._make_point(origins[i]), self._make_point(rotated_x_vec[i]/(slerp_size-1)+origins[i])]
-            p_y = [self._make_point(origins[i]), self._make_point(rotated_y_vec[i]/(slerp_size-1)+origins[i])]
-            p_z = [self._make_point(origins[i]), self._make_point(rotated_z_vec[i]/(slerp_size-1)+origins[i])]
-        
-            # create arrows 
-            m_x = self.create_arrow_marker_msg(p_x, color=colors[0], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
-            m_y = self.create_arrow_marker_msg(p_y, color=colors[1], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
-            m_z = self.create_arrow_marker_msg(p_z, color=colors[2], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
+        for i, (current_points, current_slerp, positions) in enumerate(vec_quat_array[:]):         
+            # Vectors for making coordinate frame markers
+            x = np.zeros([slerp_size, 3])
+            x[:,0] = 1
+            y = np.zeros([slerp_size, 3])
+            y[:,1] = 1
+            z = np.zeros([slerp_size, 3])
+            z[:,2] = 1
+            unit_vectors = [x, y, z]
             
-            # add arrows to temporary marker array
-            marker_array_temp.append(m_x)
-            marker_array_temp.append(m_y)
-            marker_array_temp.append(m_z)
-        
-        # Populate marker array message with arrows
-        marker_array.markers = marker_array_temp
+            
+            # Rotate unit vectors by all quaternions produced by slerp
+            rotated_x_vec = current_slerp.apply(x)
+            rotated_y_vec = current_slerp.apply(y)
+            rotated_z_vec = current_slerp.apply(z)
+            
+            # # array of vector positions to place coordinate frames origins at
+            # origins = np.zeros([slerp_size, 3])
+            # origins[:,0] = np.arange(slerp_size)
+            origins = positions
+            
+            
+            for i in range(len(rotated_x_vec[:,0])):
+                # Make point lists for each arrow x, y, z
+                p_x = [self._make_point(origins[i]), self._make_point(rotated_x_vec[i]/(slerp_size-1)+origins[i])]
+                p_y = [self._make_point(origins[i]), self._make_point(rotated_y_vec[i]/(slerp_size-1)+origins[i])]
+                p_z = [self._make_point(origins[i]), self._make_point(rotated_z_vec[i]/(slerp_size-1)+origins[i])]
+            
+                # create arrows 
+                m_x = self.create_arrow_marker_msg(p_x, color=colors[0], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
+                m_y = self.create_arrow_marker_msg(p_y, color=colors[1], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
+                m_z = self.create_arrow_marker_msg(p_z, color=colors[2], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
+                
+                # add arrows to temporary marker array
+                marker_array_temp.append(m_x)
+                marker_array_temp.append(m_y)
+                marker_array_temp.append(m_z)
+            
+            # Populate marker array message with arrows
+            marker_array.markers = marker_array_temp
         return marker_array
     
     @staticmethod
