@@ -94,7 +94,7 @@ class PoseEstimator(Node):
             x_vecs[:,1] = 1
             
             # Length of strain sensor divided by 1000 (convert from mm to m) and divide by number of segments
-            scaled_vectors = x_vecs * msg.node_data[i].sensor_length[0] / 1000 / num_interp_quats
+            scaled_vectors = x_vecs * msg.node_data[i].length[0] / 1000 / num_interp_quats
             
             # ------- Rotate vectors ----
             rotated_x_vectors = quats.apply(scaled_vectors)
@@ -112,11 +112,18 @@ class PoseEstimator(Node):
             endpoint = positions[-1]
             
             # Assign position of first node
+            p = Point()
             if i == 0:
-                msg.node_data[i].position = positions[0]
+                p.x = positions[0,0]
+                p.y = positions[0,1]
+                p.z = positions[0,2]
+                msg.node_data[i].position = p
             
             # Assign endpoint position for next node
-            msg.node_data[i+1].position = endpoint
+            p.x = endpoint[0]
+            p.y = endpoint[1]
+            p.z = endpoint[2]
+            msg.node_data[i+1].position = p
             
             # store vectors and slerped quats in temporary arrays
             temp_vec_array.append([summed_vectors, quats, positions])
