@@ -29,7 +29,7 @@ class PoseEstimator(Node):
             namespace="",
             parameters=[
                 ('num_nodes', 5),
-                ('slerp_size', 20),
+                ('slerp_size', 5),
                 ('marker_publish_freq', 15)
             ]
         )  
@@ -154,11 +154,11 @@ class PoseEstimator(Node):
         for i, (current_points, current_slerp, positions) in enumerate(vec_quat_array[:]):         
             # Vectors for making coordinate frame markers
             x = np.zeros([slerp_size, 3])
-            x[:,0] = 1
+            x[:,0] = 1/20
             y = np.zeros([slerp_size, 3])
-            y[:,1] = 1
+            y[:,1] = 1/20
             z = np.zeros([slerp_size, 3])
-            z[:,2] = 1
+            z[:,2] = 1/20
             unit_vectors = [x, y, z]
             
             
@@ -175,14 +175,15 @@ class PoseEstimator(Node):
             
             for i in range(len(rotated_x_vec[:,0])):
                 # Make point lists for each arrow x, y, z
-                p_x = [self._make_point(origins[i]), self._make_point(rotated_x_vec[i]/(slerp_size-1)+origins[i])]
-                p_y = [self._make_point(origins[i]), self._make_point(rotated_y_vec[i]/(slerp_size-1)+origins[i])]
-                p_z = [self._make_point(origins[i]), self._make_point(rotated_z_vec[i]/(slerp_size-1)+origins[i])]
+                p_x = [self._make_point(origins[i]), self._make_point(rotated_x_vec[i]/(slerp_size)+origins[i])]
+                p_y = [self._make_point(origins[i]), self._make_point(rotated_y_vec[i]/(slerp_size)+origins[i])]
+                p_z = [self._make_point(origins[i]), self._make_point(rotated_z_vec[i]/(slerp_size)+origins[i])]
             
                 # create arrows 
-                m_x = self.create_arrow_marker_msg(p_x, color=colors[0], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
-                m_y = self.create_arrow_marker_msg(p_y, color=colors[1], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
-                m_z = self.create_arrow_marker_msg(p_z, color=colors[2], scale=[0.2/slerp_size,0.35/slerp_size,0.0])
+                scale = [0.01/slerp_size,0.015/slerp_size,0.0]
+                m_x = self.create_arrow_marker_msg(p_x, color=colors[0], scale=scale)
+                m_y = self.create_arrow_marker_msg(p_y, color=colors[1], scale=scale)
+                m_z = self.create_arrow_marker_msg(p_z, color=colors[2], scale=scale)
                 
                 # add arrows to temporary marker array
                 marker_array_temp.append(m_x)

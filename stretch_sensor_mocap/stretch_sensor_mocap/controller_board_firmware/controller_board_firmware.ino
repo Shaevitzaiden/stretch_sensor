@@ -12,10 +12,10 @@ volatile bool node_timer_fired = false; //flag for the timer interrupt
 const int gain = cmd_set_gain_16x; //select which gain you'd like to use
 const bool measure_adc1 = true; //set to true if you'd like to measure adc1 (PIN_PA4)
 const bool measure_adc2 = true; //set to true if you'd like to measure adc2 (PIN_PA5)
-int nodes[] = {10, 14}; //array of addresses of each node in system
+int nodes[] = {10,11,12,13,14}; //array of addresses of each node in system
 const int num_parameters = 14; //number of data points each node will send back to controller
 const bool serial_print = false; //set to true if you'd like to print to the serial monitor and false if you'd like to use Serial.write() and a Python script for data collection
-const bool ms_timer = false; //set to true if you'd like to use the ms timer (<= 100 Hz) and false if you'd like to use the us timer (> 100 Hz)
+const bool ms_timer = true; //set to true if you'd like to use the ms timer (<= 100 Hz) and false if you'd like to use the us timer (> 100 Hz)
 
 //other variables
 const int num_nodes = sizeof(nodes) / sizeof(int); //calculates number of nodes in system
@@ -45,7 +45,7 @@ volatile int frame_counter = 1; //frame counter to track data
 
 //select timer duration
 #define TIMER_INTERVAL_US     5000
-#define TIMER_INTERVAL_MS     100
+#define TIMER_INTERVAL_MS     10
 
 //initialize hardware TIMER_TC3
 SAMDTimer ITimer(TIMER_TC3);

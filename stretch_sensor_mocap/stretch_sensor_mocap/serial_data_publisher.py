@@ -25,7 +25,7 @@ class SensorDataPublisher(Node):
             parameters=[
                 ('serial_port', "/dev/ttyACM0"),
                 ('baudrate', 115200),
-                ('num_nodes', 2),
+                ('num_nodes', 5),
                 ('node_data_size', 14),
                 ('node_sample_freq', 200)
             ]
