@@ -32,6 +32,7 @@ class SensorDataPublisher(Node):
         get_package_share_directory('stretch_sensor_mocap'),
             'resource',
             '5-node_sensor-v2_single-bend-point.csv'
+            # '5-node_sensor-v2_double-bend_points.csv'
             )
         
         
